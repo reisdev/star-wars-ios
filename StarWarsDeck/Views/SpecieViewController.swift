@@ -1,5 +1,5 @@
 //
-//  FilmViewController.swift
+//  SpecieViewController.swift
 //  StarWarsDeck
 //
 //  Created by ReisDev on 24/04/21.
@@ -7,10 +7,8 @@
 
 import UIKit
 
-class FilmViewController: UIViewController {
+class SpecieViewController: UIViewController {
 
-    @IBOutlet var cover: UIImageView;
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
