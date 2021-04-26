@@ -26,6 +26,7 @@
 		C54FF6BD2634FF1500C79A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54FF6BC2634FF1500C79A94 /* Main.storyboard */; };
 		C54FF6C82635EFF700C79A94 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6C72635EFF700C79A94 /* HomeViewController.swift */; };
 		C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */; };
+		C54FF6EC26365EBC00C79A94 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C54FF6EB26365EBC00C79A94 /* .gitignore */; };
 		C572EF3A26344EFF00CB6086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3926344EFF00CB6086 /* AppDelegate.swift */; };
 		C572EF3C26344EFF00CB6086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */; };
 		C572EF3E26344EFF00CB6086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3D26344EFF00CB6086 /* ViewController.swift */; };
@@ -78,6 +79,7 @@
 		C54FF6BC2634FF1500C79A94 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C54FF6C72635EFF700C79A94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingViewController.swift; sourceTree = "<group>"; };
+		C54FF6EB26365EBC00C79A94 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C572EF3626344EFF00CB6086 /* StarWarsDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572EF3926344EFF00CB6086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				C572EF3826344EFF00CB6086 /* StarWarsDeck */,
 				C572EF4F26344F0200CB6086 /* StarWarsDeckTests */,
 				C572EF5A26344F0200CB6086 /* StarWarsDeckUITests */,
+				C54FF6EB26365EBC00C79A94 /* .gitignore */,
 				C54FF62E2634549C00C79A94 /* Podfile */,
 				86A7B24A5FDBAA6D9A8834F2 /* Frameworks */,
 			);
@@ -348,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54FF6EC26365EBC00C79A94 /* .gitignore in Resources */,
 				C54FF6BD2634FF1500C79A94 /* Main.storyboard in Resources */,
 				C572EF4626344F0100CB6086 /* LaunchScreen.storyboard in Resources */,
 				C572EF4326344F0100CB6086 /* Assets.xcassets in Resources */,
