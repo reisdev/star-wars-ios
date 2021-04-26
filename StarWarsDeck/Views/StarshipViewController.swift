@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartshipViewController: UIViewController {
+class StarshipViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

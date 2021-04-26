@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1039A35E7BDA5B90DAF6B194 /* Pods_StarWarsDeckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941318367A3B2EECD21BA8DD /* Pods_StarWarsDeckTests.framework */; };
-		B40DE6718F4A530C0A3DA24D /* Pods_StarWarsDeck_StarWarsDeckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6DEF36233F93529C1D7854 /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */; };
+		54C2F155F89B52E3BD92C0B6 /* Pods_StarWarsDeckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */; };
 		C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF609263452D800C79A94 /* PeopleModel.swift */; };
 		C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF611263452E900C79A94 /* VehicleModel.swift */; };
 		C54FF6172634530000C79A94 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6162634530000C79A94 /* FilmModel.swift */; };
@@ -18,26 +17,23 @@
 		C54FF62F2634549C00C79A94 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C54FF62E2634549C00C79A94 /* Podfile */; };
 		C54FF6372634561400C79A94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6362634561400C79A94 /* APIService.swift */; };
 		C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF63B263456E300C79A94 /* FilmViewController.swift */; };
-		C54FF63E263456E300C79A94 /* FilmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF63C263456E300C79A94 /* FilmViewController.xib */; };
 		C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF642263457F700C79A94 /* PeopleViewController.swift */; };
-		C54FF645263457F700C79A94 /* PeopleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF643263457F700C79A94 /* PeopleViewController.xib */; };
 		C54FF64C26345ED200C79A94 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF64A26345ED200C79A94 /* PlanetViewController.swift */; };
-		C54FF64D26345ED200C79A94 /* PlanetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF64B26345ED200C79A94 /* PlanetViewController.xib */; };
 		C54FF65326345EEF00C79A94 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF65126345EEF00C79A94 /* VehicleViewController.swift */; };
-		C54FF65426345EEF00C79A94 /* VehicleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF65226345EEF00C79A94 /* VehicleViewController.xib */; };
-		C54FF65A26345F0300C79A94 /* StartshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF65826345F0300C79A94 /* StartshipViewController.swift */; };
-		C54FF65B26345F0300C79A94 /* StartshipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF65926345F0300C79A94 /* StartshipViewController.xib */; };
+		C54FF65A26345F0300C79A94 /* StarshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF65826345F0300C79A94 /* StarshipViewController.swift */; };
 		C54FF6642634D7BF00C79A94 /* SpecieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */; };
-		C54FF6652634D7BF00C79A94 /* SpecieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C54FF6632634D7BF00C79A94 /* SpecieViewController.xib */; };
+		C54FF6912634E86500C79A94 /* Pods_StarWarsDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED63909D5A39BF03B998CF42 /* Pods_StarWarsDeck.framework */; };
+		C54FF6BD2634FF1500C79A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54FF6BC2634FF1500C79A94 /* Main.storyboard */; };
+		C54FF6C82635EFF700C79A94 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6C72635EFF700C79A94 /* HomeViewController.swift */; };
+		C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */; };
 		C572EF3A26344EFF00CB6086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3926344EFF00CB6086 /* AppDelegate.swift */; };
 		C572EF3C26344EFF00CB6086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */; };
 		C572EF3E26344EFF00CB6086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF3D26344EFF00CB6086 /* ViewController.swift */; };
-		C572EF4126344EFF00CB6086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C572EF3F26344EFF00CB6086 /* Main.storyboard */; };
 		C572EF4326344F0100CB6086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C572EF4226344F0100CB6086 /* Assets.xcassets */; };
 		C572EF4626344F0100CB6086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */; };
 		C572EF5126344F0200CB6086 /* StarWarsDeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF5026344F0200CB6086 /* StarWarsDeckTests.swift */; };
 		C572EF5C26344F0200CB6086 /* StarWarsDeckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */; };
-		DE10E0DBB31924FA339B7B8D /* Pods_StarWarsDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D59DC5B7A390F3CDA7423D1 /* Pods_StarWarsDeck.framework */; };
+		E36FC053AE75C908B31948CE /* Pods_StarWarsDeck_StarWarsDeckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31951B72B4A334F8DA28989A /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +54,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C59D11A9AD029D5CB6D35B9 /* Pods-StarWarsDeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.release.xcconfig"; sourceTree = "<group>"; };
-		60CE253E33308465AC51EDB6 /* Pods-StarWarsDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck.debug.xcconfig"; sourceTree = "<group>"; };
-		7D59DC5B7A390F3CDA7423D1 /* Pods_StarWarsDeck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		941318367A3B2EECD21BA8DD /* Pods_StarWarsDeckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA44D7C8BB4E2AFA6EFA7B31 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AD6DEF36233F93529C1D7854 /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeck_StarWarsDeckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B76EA20F465F34D67BA95728 /* Pods-StarWarsDeck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck.release.xcconfig"; sourceTree = "<group>"; };
-		C11B0724885CCD09E71F9409 /* Pods-StarWarsDeckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1EA6524119C134E362E614C7 /* Pods-StarWarsDeck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck.release.xcconfig"; sourceTree = "<group>"; };
+		31951B72B4A334F8DA28989A /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeck_StarWarsDeckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6363EBC6B6A90815E4EE04C1 /* Pods-StarWarsDeckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7768DAE95DEF4DFB2EBEB84C /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E06FAC55274CE8701EC3CA8 /* Pods-StarWarsDeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B365B18451562B23477B1795 /* Pods-StarWarsDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck.debug.xcconfig"; sourceTree = "<group>"; };
 		C54FF609263452D800C79A94 /* PeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleModel.swift; sourceTree = "<group>"; };
 		C54FF611263452E900C79A94 /* VehicleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
 		C54FF6162634530000C79A94 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
@@ -75,22 +70,18 @@
 		C54FF62E2634549C00C79A94 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		C54FF6362634561400C79A94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C54FF63B263456E300C79A94 /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
-		C54FF63C263456E300C79A94 /* FilmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmViewController.xib; sourceTree = "<group>"; };
 		C54FF642263457F700C79A94 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
-		C54FF643263457F700C79A94 /* PeopleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleViewController.xib; sourceTree = "<group>"; };
 		C54FF64A26345ED200C79A94 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
-		C54FF64B26345ED200C79A94 /* PlanetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetViewController.xib; sourceTree = "<group>"; };
 		C54FF65126345EEF00C79A94 /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
-		C54FF65226345EEF00C79A94 /* VehicleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleViewController.xib; sourceTree = "<group>"; };
-		C54FF65826345F0300C79A94 /* StartshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartshipViewController.swift; sourceTree = "<group>"; };
-		C54FF65926345F0300C79A94 /* StartshipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartshipViewController.xib; sourceTree = "<group>"; };
+		C54FF65826345F0300C79A94 /* StarshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewController.swift; sourceTree = "<group>"; };
 		C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieViewController.swift; sourceTree = "<group>"; };
-		C54FF6632634D7BF00C79A94 /* SpecieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecieViewController.xib; sourceTree = "<group>"; };
+		C54FF6BC2634FF1500C79A94 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C54FF6C72635EFF700C79A94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingViewController.swift; sourceTree = "<group>"; };
 		C572EF3626344EFF00CB6086 /* StarWarsDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572EF3926344EFF00CB6086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C572EF3D26344EFF00CB6086 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C572EF4026344EFF00CB6086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C572EF4226344F0100CB6086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C572EF4526344F0100CB6086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C572EF4726344F0100CB6086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +91,8 @@
 		C572EF5726344F0200CB6086 /* StarWarsDeckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsDeckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsDeckUITests.swift; sourceTree = "<group>"; };
 		C572EF5D26344F0200CB6086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB123529FB462786B2420F42 /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED63909D5A39BF03B998CF42 /* Pods_StarWarsDeck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFACB68B511D0C4350AB0649 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE10E0DBB31924FA339B7B8D /* Pods_StarWarsDeck.framework in Frameworks */,
+				C54FF6912634E86500C79A94 /* Pods_StarWarsDeck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1039A35E7BDA5B90DAF6B194 /* Pods_StarWarsDeckTests.framework in Frameworks */,
+				54C2F155F89B52E3BD92C0B6 /* Pods_StarWarsDeckTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40DE6718F4A530C0A3DA24D /* Pods_StarWarsDeck_StarWarsDeckUITests.framework in Frameworks */,
+				E36FC053AE75C908B31948CE /* Pods_StarWarsDeck_StarWarsDeckUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,22 +126,22 @@
 		1D0374A369B79422DFEF6024 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				60CE253E33308465AC51EDB6 /* Pods-StarWarsDeck.debug.xcconfig */,
-				B76EA20F465F34D67BA95728 /* Pods-StarWarsDeck.release.xcconfig */,
-				FB123529FB462786B2420F42 /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */,
-				AA44D7C8BB4E2AFA6EFA7B31 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */,
-				C11B0724885CCD09E71F9409 /* Pods-StarWarsDeckTests.debug.xcconfig */,
-				1C59D11A9AD029D5CB6D35B9 /* Pods-StarWarsDeckTests.release.xcconfig */,
+				B365B18451562B23477B1795 /* Pods-StarWarsDeck.debug.xcconfig */,
+				1EA6524119C134E362E614C7 /* Pods-StarWarsDeck.release.xcconfig */,
+				7768DAE95DEF4DFB2EBEB84C /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */,
+				FFACB68B511D0C4350AB0649 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */,
+				6363EBC6B6A90815E4EE04C1 /* Pods-StarWarsDeckTests.debug.xcconfig */,
+				7E06FAC55274CE8701EC3CA8 /* Pods-StarWarsDeckTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		61A9D3FCC23C9BA7189324BE /* Frameworks */ = {
+		86A7B24A5FDBAA6D9A8834F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D59DC5B7A390F3CDA7423D1 /* Pods_StarWarsDeck.framework */,
-				AD6DEF36233F93529C1D7854 /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */,
-				941318367A3B2EECD21BA8DD /* Pods_StarWarsDeckTests.framework */,
+				ED63909D5A39BF03B998CF42 /* Pods_StarWarsDeck.framework */,
+				31951B72B4A334F8DA28989A /* Pods_StarWarsDeck_StarWarsDeckUITests.framework */,
+				AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,9 +149,9 @@
 		C54FF608263450F700C79A94 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C54FF6362634561400C79A94 /* APIService.swift */,
 				C572EF3926344EFF00CB6086 /* AppDelegate.swift */,
 				C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */,
-				C54FF6362634561400C79A94 /* APIService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -167,12 +159,12 @@
 		C54FF62D263453C200C79A94 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C54FF609263452D800C79A94 /* PeopleModel.swift */,
-				C54FF611263452E900C79A94 /* VehicleModel.swift */,
 				C54FF6162634530000C79A94 /* FilmModel.swift */,
-				C54FF61B2634531600C79A94 /* StarshipModel.swift */,
+				C54FF609263452D800C79A94 /* PeopleModel.swift */,
 				C54FF623263453A000C79A94 /* PlanetModel.swift */,
 				C54FF628263453BC00C79A94 /* SpecieModel.swift */,
+				C54FF61B2634531600C79A94 /* StarshipModel.swift */,
+				C54FF611263452E900C79A94 /* VehicleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,19 +172,15 @@
 		C54FF6492634580A00C79A94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C572EF3F26344EFF00CB6086 /* Main.storyboard */,
 				C54FF63B263456E300C79A94 /* FilmViewController.swift */,
-				C54FF63C263456E300C79A94 /* FilmViewController.xib */,
 				C54FF642263457F700C79A94 /* PeopleViewController.swift */,
-				C54FF643263457F700C79A94 /* PeopleViewController.xib */,
 				C54FF64A26345ED200C79A94 /* PlanetViewController.swift */,
-				C54FF64B26345ED200C79A94 /* PlanetViewController.xib */,
-				C54FF65126345EEF00C79A94 /* VehicleViewController.swift */,
-				C54FF65226345EEF00C79A94 /* VehicleViewController.xib */,
-				C54FF65826345F0300C79A94 /* StartshipViewController.swift */,
-				C54FF65926345F0300C79A94 /* StartshipViewController.xib */,
 				C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */,
-				C54FF6632634D7BF00C79A94 /* SpecieViewController.xib */,
+				C54FF65826345F0300C79A94 /* StarshipViewController.swift */,
+				C54FF65126345EEF00C79A94 /* VehicleViewController.swift */,
+				C54FF6BC2634FF1500C79A94 /* Main.storyboard */,
+				C54FF6C72635EFF700C79A94 /* HomeViewController.swift */,
+				C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,13 +188,13 @@
 		C572EF2D26344EFF00CB6086 = {
 			isa = PBXGroup;
 			children = (
-				C54FF62E2634549C00C79A94 /* Podfile */,
+				1D0374A369B79422DFEF6024 /* Pods */,
+				C572EF3726344EFF00CB6086 /* Products */,
 				C572EF3826344EFF00CB6086 /* StarWarsDeck */,
 				C572EF4F26344F0200CB6086 /* StarWarsDeckTests */,
 				C572EF5A26344F0200CB6086 /* StarWarsDeckUITests */,
-				C572EF3726344EFF00CB6086 /* Products */,
-				1D0374A369B79422DFEF6024 /* Pods */,
-				61A9D3FCC23C9BA7189324BE /* Frameworks */,
+				C54FF62E2634549C00C79A94 /* Podfile */,
+				86A7B24A5FDBAA6D9A8834F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,12 +212,12 @@
 			isa = PBXGroup;
 			children = (
 				C54FF608263450F700C79A94 /* Core */,
-				C572EF3D26344EFF00CB6086 /* ViewController.swift */,
-				C572EF4226344F0100CB6086 /* Assets.xcassets */,
-				C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */,
-				C572EF4726344F0100CB6086 /* Info.plist */,
 				C54FF62D263453C200C79A94 /* Models */,
 				C54FF6492634580A00C79A94 /* Views */,
+				C572EF4226344F0100CB6086 /* Assets.xcassets */,
+				C572EF4726344F0100CB6086 /* Info.plist */,
+				C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */,
+				C572EF3D26344EFF00CB6086 /* ViewController.swift */,
 			);
 			path = StarWarsDeck;
 			sourceTree = "<group>";
@@ -237,8 +225,8 @@
 		C572EF4F26344F0200CB6086 /* StarWarsDeckTests */ = {
 			isa = PBXGroup;
 			children = (
-				C572EF5026344F0200CB6086 /* StarWarsDeckTests.swift */,
 				C572EF5226344F0200CB6086 /* Info.plist */,
+				C572EF5026344F0200CB6086 /* StarWarsDeckTests.swift */,
 			);
 			path = StarWarsDeckTests;
 			sourceTree = "<group>";
@@ -246,8 +234,8 @@
 		C572EF5A26344F0200CB6086 /* StarWarsDeckUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */,
 				C572EF5D26344F0200CB6086 /* Info.plist */,
+				C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */,
 			);
 			path = StarWarsDeckUITests;
 			sourceTree = "<group>";
@@ -259,11 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572EF6026344F0200CB6086 /* Build configuration list for PBXNativeTarget "StarWarsDeck" */;
 			buildPhases = (
-				BCC9BD3E99AC031C19666E45 /* [CP] Check Pods Manifest.lock */,
+				0A6F4E0724EAD7E2F84194F8 /* [CP] Check Pods Manifest.lock */,
 				C572EF3226344EFF00CB6086 /* Sources */,
 				C572EF3326344EFF00CB6086 /* Frameworks */,
 				C572EF3426344EFF00CB6086 /* Resources */,
-				78995C6A183EEBCD389A86D6 /* [CP] Embed Pods Frameworks */,
+				6217252B81F09954462215DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,7 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572EF6326344F0200CB6086 /* Build configuration list for PBXNativeTarget "StarWarsDeckTests" */;
 			buildPhases = (
-				51821C8F5CA16F00D786713A /* [CP] Check Pods Manifest.lock */,
+				A15DFA022431845C5D8CFBC2 /* [CP] Check Pods Manifest.lock */,
 				C572EF4826344F0200CB6086 /* Sources */,
 				C572EF4926344F0200CB6086 /* Frameworks */,
 				C572EF4A26344F0200CB6086 /* Resources */,
@@ -297,11 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572EF6626344F0200CB6086 /* Build configuration list for PBXNativeTarget "StarWarsDeckUITests" */;
 			buildPhases = (
-				A28D00ABB73DA1990D11975A /* [CP] Check Pods Manifest.lock */,
+				BDB48CB4F7EAE9335D60A3BB /* [CP] Check Pods Manifest.lock */,
 				C572EF5326344F0200CB6086 /* Sources */,
 				C572EF5426344F0200CB6086 /* Frameworks */,
 				C572EF5526344F0200CB6086 /* Resources */,
-				7B3C6AAB9293DA92E622B486 /* [CP] Embed Pods Frameworks */,
+				C87D2E617E3456F7EDAD746B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,16 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54FF63E263456E300C79A94 /* FilmViewController.xib in Resources */,
-				C54FF65426345EEF00C79A94 /* VehicleViewController.xib in Resources */,
-				C54FF645263457F700C79A94 /* PeopleViewController.xib in Resources */,
-				C54FF64D26345ED200C79A94 /* PlanetViewController.xib in Resources */,
-				C54FF65B26345F0300C79A94 /* StartshipViewController.xib in Resources */,
-				C54FF6652634D7BF00C79A94 /* SpecieViewController.xib in Resources */,
+				C54FF6BD2634FF1500C79A94 /* Main.storyboard in Resources */,
 				C572EF4626344F0100CB6086 /* LaunchScreen.storyboard in Resources */,
 				C572EF4326344F0100CB6086 /* Assets.xcassets in Resources */,
 				C54FF62F2634549C00C79A94 /* Podfile in Resources */,
-				C572EF4126344EFF00CB6086 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,85 +372,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51821C8F5CA16F00D786713A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StarWarsDeckTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78995C6A183EEBCD389A86D6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B3C6AAB9293DA92E622B486 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A28D00ABB73DA1990D11975A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StarWarsDeck-StarWarsDeckUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BCC9BD3E99AC031C19666E45 /* [CP] Check Pods Manifest.lock */ = {
+		0A6F4E0724EAD7E2F84194F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,6 +394,84 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6217252B81F09954462215DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A15DFA022431845C5D8CFBC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarWarsDeckTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDB48CB4F7EAE9335D60A3BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarWarsDeck-StarWarsDeckUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C87D2E617E3456F7EDAD746B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -500,8 +482,10 @@
 				C572EF3E26344EFF00CB6086 /* ViewController.swift in Sources */,
 				C54FF65326345EEF00C79A94 /* VehicleViewController.swift in Sources */,
 				C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */,
-				C54FF65A26345F0300C79A94 /* StartshipViewController.swift in Sources */,
+				C54FF6C82635EFF700C79A94 /* HomeViewController.swift in Sources */,
+				C54FF65A26345F0300C79A94 /* StarshipViewController.swift in Sources */,
 				C54FF624263453A000C79A94 /* PlanetModel.swift in Sources */,
+				C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */,
 				C54FF61C2634531600C79A94 /* StarshipModel.swift in Sources */,
 				C54FF6172634530000C79A94 /* FilmModel.swift in Sources */,
 				C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */,
@@ -548,20 +532,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C572EF3F26344EFF00CB6086 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C572EF4026344EFF00CB6086 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C572EF4526344F0100CB6086 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -685,7 +662,7 @@
 		};
 		C572EF6126344F0200CB6086 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60CE253E33308465AC51EDB6 /* Pods-StarWarsDeck.debug.xcconfig */;
+			baseConfigurationReference = B365B18451562B23477B1795 /* Pods-StarWarsDeck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -704,7 +681,7 @@
 		};
 		C572EF6226344F0200CB6086 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B76EA20F465F34D67BA95728 /* Pods-StarWarsDeck.release.xcconfig */;
+			baseConfigurationReference = 1EA6524119C134E362E614C7 /* Pods-StarWarsDeck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -723,7 +700,7 @@
 		};
 		C572EF6426344F0200CB6086 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C11B0724885CCD09E71F9409 /* Pods-StarWarsDeckTests.debug.xcconfig */;
+			baseConfigurationReference = 6363EBC6B6A90815E4EE04C1 /* Pods-StarWarsDeckTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -745,7 +722,7 @@
 		};
 		C572EF6526344F0200CB6086 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C59D11A9AD029D5CB6D35B9 /* Pods-StarWarsDeckTests.release.xcconfig */;
+			baseConfigurationReference = 7E06FAC55274CE8701EC3CA8 /* Pods-StarWarsDeckTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -767,7 +744,7 @@
 		};
 		C572EF6726344F0200CB6086 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB123529FB462786B2420F42 /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */;
+			baseConfigurationReference = 7768DAE95DEF4DFB2EBEB84C /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -787,7 +764,7 @@
 		};
 		C572EF6826344F0200CB6086 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA44D7C8BB4E2AFA6EFA7B31 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */;
+			baseConfigurationReference = FFACB68B511D0C4350AB0649 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
