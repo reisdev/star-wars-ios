@@ -68,6 +68,7 @@ extension Film {
         edited = ""
     }
 }
+
 class FilmViewModel {
     
     let view: FilmViewController;
