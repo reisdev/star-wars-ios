@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class Planet: Model {
+    var name: String
+    
+    func getCellInfo() -> String {
+        return name
+    }
+}

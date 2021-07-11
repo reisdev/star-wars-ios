@@ -18,20 +18,8 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is FilmViewController {
             if let vc = segue.destination as? FilmViewController {
-                vc.filmURL = "https://swapi.dev/api/films/1/"
+                vc.viewModel.filmURL = "https://swapi.dev/api/films/1/"
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

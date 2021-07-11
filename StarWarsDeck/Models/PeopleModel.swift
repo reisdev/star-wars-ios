@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct People: Codable {
+struct People: Model {
     var name: String;
     var birthYear: String;
     var eyeColor: String;
@@ -42,5 +42,9 @@ struct People: Codable {
         case url = "url"
         case created = "created"
         case edited = "edited"
+    }
+    
+    func getCellInfo() -> String {
+        return name
     }
 }

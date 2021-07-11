@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import UIKit
-import RxSwift
 
-struct Film: Codable {
+struct Film: Model {    
+    // - MARK: Attributes
     var title: String
     var episodeId: Int;
     var openingCrawl: String;
@@ -24,7 +23,6 @@ struct Film: Codable {
     var url : String;
     var created: String;
     var edited: String;
-    
     var releaseYear: String {
         get {
             return releaseDate.count > 0 ? String(releaseDate.split(separator: "-")[0])
@@ -48,6 +46,10 @@ struct Film: Codable {
         case created = "created"
         case edited = "edited"
     }
+    
+    func getCellInfo() -> String {
+        return title
+    }
 }
 
 extension Film {
@@ -66,23 +68,5 @@ extension Film {
         url = ""
         created = ""
         edited = ""
-    }
-}
-
-class FilmViewModel {
-    
-    let view: FilmViewController;
-    let disposeBag = DisposeBag()
-    
-    init(view: UIViewController) {
-        self.view = view as! FilmViewController;
-    }
-    
-    func loadFilm(){
-        APIService.shared.get(self.view.filmURL).subscribe(onNext: { (film: Film) in
-            self.view.film.onNext(film)
-        }, onError : { error in
-            debugPrint(error)
-        }).disposed(by: self.disposeBag)
     }
 }

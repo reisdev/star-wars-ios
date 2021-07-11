@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Specie: Model {
+    var name: String;
+    
+    func getCellInfo() -> String {
+        return name
+    }
+}
