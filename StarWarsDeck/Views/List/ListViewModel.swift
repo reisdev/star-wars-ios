@@ -2,7 +2,7 @@
 //  ListViewModel.swift
 //  StarWarsDeck
 //
-//  Created by mobile2you on 09/07/21.
+//  Created by ReisDev on 09/07/21.
 //
 
 import Foundation

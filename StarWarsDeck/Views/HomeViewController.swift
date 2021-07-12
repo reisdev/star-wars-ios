@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is FilmViewController {
             if let vc = segue.destination as? FilmViewController {
-                vc.viewModel.filmURL = "https://swapi.dev/api/films/1/"
+                vc.viewModel.filmURL.onNext("https://swapi.dev/api/films/1/")
             }
         }
     }

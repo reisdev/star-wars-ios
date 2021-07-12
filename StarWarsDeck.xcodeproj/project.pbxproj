@@ -15,6 +15,8 @@
 		3E125EA32698D17700E9A8D1 /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EA22698D17700E9A8D1 /* FilmViewModel.swift */; };
 		3E125EA6269B915D00E9A8D1 /* OpeningCrawlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */; };
 		3E125EA9269B974000E9A8D1 /* OpeningCrawlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */; };
+		3E125EAB269BC3D300E9A8D1 /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAA269BC3D300E9A8D1 /* FilmView.swift */; };
+		3E125EAE269C77E700E9A8D1 /* ViewBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */; };
 		54C2F155F89B52E3BD92C0B6 /* Pods_StarWarsDeckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */; };
 		C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF609263452D800C79A94 /* PeopleModel.swift */; };
 		C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF611263452E900C79A94 /* VehicleModel.swift */; };
@@ -70,6 +72,8 @@
 		3E125EA22698D17700E9A8D1 /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 		3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingView.swift; sourceTree = "<group>"; };
 		3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingViewModel.swift; sourceTree = "<group>"; };
+		3E125EAA269BC3D300E9A8D1 /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
+		3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilders.swift; sourceTree = "<group>"; };
 		6363EBC6B6A90815E4EE04C1 /* Pods-StarWarsDeckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7768DAE95DEF4DFB2EBEB84C /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E06FAC55274CE8701EC3CA8 /* Pods-StarWarsDeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				C54FF63B263456E300C79A94 /* FilmViewController.swift */,
 				3E125EA22698D17700E9A8D1 /* FilmViewModel.swift */,
+				3E125EAA269BC3D300E9A8D1 /* FilmView.swift */,
 			);
 			path = Film;
 			sourceTree = "<group>";
@@ -183,6 +188,14 @@
 				3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */,
 			);
 			path = OpeningCrawling;
+			sourceTree = "<group>";
+		};
+		3E125EAC269C77C500E9A8D1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		86A7B24A5FDBAA6D9A8834F2 /* Frameworks */ = {
@@ -223,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				3E125EA42698D18100E9A8D1 /* Film */,
+				3E125E9D2697E0E300E9A8D1 /* List */,
+				3E125EA7269B916A00E9A8D1 /* OpeningCrawling */,
 				C54FF642263457F700C79A94 /* PeopleViewController.swift */,
 				C54FF64A26345ED200C79A94 /* PlanetViewController.swift */,
 				C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */,
@@ -230,8 +245,6 @@
 				C54FF65126345EEF00C79A94 /* VehicleViewController.swift */,
 				C54FF6BC2634FF1500C79A94 /* Main.storyboard */,
 				C54FF6C72635EFF700C79A94 /* HomeViewController.swift */,
-				3E125EA7269B916A00E9A8D1 /* OpeningCrawling */,
-				3E125E9D2697E0E300E9A8D1 /* List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +276,7 @@
 		C572EF3826344EFF00CB6086 /* StarWarsDeck */ = {
 			isa = PBXGroup;
 			children = (
+				3E125EAC269C77C500E9A8D1 /* Utilities */,
 				C54FF608263450F700C79A94 /* Core */,
 				C54FF62D263453C200C79A94 /* Models */,
 				C54FF6492634580A00C79A94 /* Views */,
@@ -524,12 +538,14 @@
 				3E125EA6269B915D00E9A8D1 /* OpeningCrawlingView.swift in Sources */,
 				C54FF65A26345F0300C79A94 /* StarshipViewController.swift in Sources */,
 				C54FF624263453A000C79A94 /* PlanetModel.swift in Sources */,
+				3E125EAB269BC3D300E9A8D1 /* FilmView.swift in Sources */,
 				C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */,
 				C54FF61C2634531600C79A94 /* StarshipModel.swift in Sources */,
 				3E125EA32698D17700E9A8D1 /* FilmViewModel.swift in Sources */,
 				3E125EA126988AFB00E9A8D1 /* ListViewModel.swift in Sources */,
 				C54FF6172634530000C79A94 /* FilmModel.swift in Sources */,
 				C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */,
+				3E125EAE269C77E700E9A8D1 /* ViewBuilders.swift in Sources */,
 				C54FF629263453BC00C79A94 /* SpecieModel.swift in Sources */,
 				C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */,
 				C54FF6372634561400C79A94 /* APIService.swift in Sources */,

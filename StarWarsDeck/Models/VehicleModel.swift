@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Vehicle: Model {
+    var name: String
+    
+    func getCellInfo() -> String {
+        return name
+    }
+}

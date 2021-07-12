@@ -2,7 +2,7 @@
 //  OpeningCrawlingViewModel.swift
 //  StarWarsDeck
 //
-//  Created by mobile2you on 11/07/21.
+//  Created by ReisDev on 11/07/21.
 //
 
 import Foundation
