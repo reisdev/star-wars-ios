@@ -100,6 +100,8 @@ class FilmView: UIView {
     }
     
     private func setupUI() {
+        backgroundColor = .black
+        
         verticalStack.setCustomSpacing(30.0, after: infoStackView)
         verticalStack.setCustomSpacing(30.0, after: producerStack)
     }

@@ -16,16 +16,15 @@ class ListViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
-        
-        contentView.tintColor = .systemYellow
         textLabel!.textColor = .systemYellow
         backgroundColor = .black
+        
+        selectionStyle = .none
+        accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
 
         accessoryView?.backgroundColor = .black
         accessoryView?.tintColor = .systemYellow
         
-        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +34,7 @@ class ListViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            contentView.backgroundColor = .systemYellow
+            backgroundColor = .systemYellow
             
             accessoryView?.backgroundColor = .systemYellow
             accessoryView?.superview?.backgroundColor = .systemYellow
@@ -43,7 +42,7 @@ class ListViewCell: UITableViewCell {
             
             textLabel?.textColor = .black
         } else {
-            contentView.backgroundColor = .black
+            backgroundColor = .black
             
             accessoryView?.backgroundColor = .black
             accessoryView?.tintColor = .systemYellow
