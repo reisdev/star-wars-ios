@@ -10,7 +10,6 @@ import UIKit
 import RxCocoa
 
 // MARK: StackView
-
 func makeGenericStackView(axis: NSLayoutConstraint.Axis = .vertical, distribution: UIStackView.Distribution = .fill, alignment: UIStackView.Alignment = .fill, spacing: CGFloat = 15.0) -> UIStackView{
     let stack = UIStackView()
     stack.axis = axis

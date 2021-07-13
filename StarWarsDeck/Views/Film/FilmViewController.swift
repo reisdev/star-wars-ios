@@ -32,7 +32,6 @@ class FilmViewController: UIViewController {
     }
     
     private func setupBindings(){
-        
         viewModel.isFilmSet
             .map({ $0 ? CGFloat(1) : CGFloat(0.5) })
             .bind(to: customView.charactersButton.rx.alpha)
@@ -93,6 +92,7 @@ class FilmViewController: UIViewController {
                 let film = try self.viewModel.film.value()
                 let viewModel = OpeningCrawlingViewModel(film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil))
                 let controller = OpeningCrawlingViewController(viewModel: viewModel)
+                
                 self.navigationController?.showDetailViewController(controller,sender: nil)
             } catch(let error){
                 debugPrint(error)

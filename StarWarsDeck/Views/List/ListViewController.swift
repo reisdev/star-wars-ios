@@ -10,6 +10,48 @@ import RxSwift
 import RxCocoa
 
 class ListViewCell: UITableViewCell {
+    
+    let button = UIButton(type: .custom)
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
+        
+        contentView.tintColor = .systemYellow
+        textLabel!.textColor = .systemYellow
+        backgroundColor = .black
+
+        accessoryView?.backgroundColor = .black
+        accessoryView?.tintColor = .systemYellow
+        
+        selectionStyle = .none
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected {
+            contentView.backgroundColor = .systemYellow
+            
+            accessoryView?.backgroundColor = .systemYellow
+            accessoryView?.superview?.backgroundColor = .systemYellow
+            accessoryView?.tintColor = .black
+            
+            textLabel?.textColor = .black
+        } else {
+            contentView.backgroundColor = .black
+            
+            accessoryView?.backgroundColor = .black
+            accessoryView?.tintColor = .systemYellow
+            accessoryView?.superview?.backgroundColor = .black
+            
+            textLabel?.textColor = .systemYellow
+        }
+    }
 }
 
 class ListViewController<T: Decodable>: UIViewController {
@@ -47,9 +89,7 @@ class ListViewController<T: Decodable>: UIViewController {
     
     private func setupBinding(){
         viewModel.urls.bind(to: (self.view as! ListView).itemsTableView.rx.items) { (tableView,index,url) in
-            let cell = UITableViewCell(style: .default,reuseIdentifier: "cell")
-            cell.textLabel!.textColor = .systemYellow
-            cell.contentView.backgroundColor = .black
+            let cell = ListViewCell(style: .default,reuseIdentifier: "cell")
             APIService.shared.get(url)
                 .subscribe(onNext: { (data: T) in
                     cell.textLabel!.text = (data as! Model).getCellInfo()

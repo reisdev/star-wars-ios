@@ -34,6 +34,7 @@ class ListView: UIView {
         backgroundColor = .black
         tintColor = .yellow
         itemsTableView.backgroundColor = .black
+        itemsTableView.separatorStyle = .none
     }
     
     private func addViews() {
