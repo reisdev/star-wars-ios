@@ -15,24 +15,25 @@ class FilmView: UIView {
     var contentView = UIView()
     var verticalStack = makeGenericStackView(axis: .vertical)
     var infoStackView = makeGenericStackView(axis: .horizontal)
-    var directorStack = makeGenericStackView(axis: .horizontal,spacing: 20.0)
+    var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0)
     var producerStack = makeGenericStackView(axis: .horizontal)
     var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually)
     var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually)
     var shortcutsStack = makeGenericStackView(axis: .vertical)
     
     // MARK: Subviews
+    var backButton = makeGenericButton(image: UIImage(systemName: "chevron.left"),style: .secondary)
     var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
     var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
     var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
     var directorName = makeGenericLabel(fontSize: 18.0);
     var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
     var producerName = makeGenericLabel(fontSize: 18.0);
-    var crawlingButton = makeGenericButton(title: "Opening Crawling",image: UIImage(systemName: "play.fill"));
-    var charactersButton = makeGenericButton(title: "Characters", image: UIImage(systemName: "person.fill"));
-    var vehiclesButton = makeGenericButton(title: "Vehicles", image: UIImage(systemName: "airplane"))
-    var planetsButton = makeGenericButton(title: "Planets", image: UIImage(systemName: "globe"));
-    var speciesButton = makeGenericButton(title: "Species", image: UIImage(named: "dna"));
+    var crawlingButton = makeGenericButton(title: "Opening Crawling",image: UIImage(systemName: "play.fill"),rounded: true);
+    var charactersButton = makeGenericButton(title: "Characters", image: UIImage(systemName: "person.fill"),rounded: true);
+    var vehiclesButton = makeGenericButton(title: "Vehicles", image: UIImage(systemName: "airplane"),rounded: true)
+    var planetsButton = makeGenericButton(title: "Planets", image: UIImage(systemName: "globe"),rounded: true);
+    var speciesButton = makeGenericButton(title: "Species", image: UIImage(named: "dna"),rounded: true);
     
     init(){
         super.init(frame: .zero)
@@ -48,6 +49,7 @@ class FilmView: UIView {
     private func addViews() {
         addSubview(contentView)
         
+        infoStackView.addArrangedSubview(backButton)
         infoStackView.addArrangedSubview(movieTitle)
         infoStackView.addArrangedSubview(movieYear)
         verticalStack.addArrangedSubview(infoStackView)
@@ -82,8 +84,8 @@ class FilmView: UIView {
         }
         
         verticalStack.snp.makeConstraints { make in
-            make.left.equalTo(contentView.snp.left).offset(20)
-            make.right.equalTo(contentView.snp.right).offset(-20)
+            make.left.equalTo(contentView.snp.left).inset(20)
+            make.right.equalTo(contentView.snp.right).inset(20)
         }
         
         directorStack.snp.makeConstraints { make in
@@ -102,7 +104,7 @@ class FilmView: UIView {
     private func setupUI() {
         backgroundColor = .black
         
-        verticalStack.setCustomSpacing(30.0, after: infoStackView)
+        verticalStack.setCustomSpacing(50.0, after: infoStackView)
         verticalStack.setCustomSpacing(30.0, after: producerStack)
     }
 }

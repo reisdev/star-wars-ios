@@ -87,6 +87,10 @@ class FilmViewController: UIViewController {
     }
     
     private func setupInteractions(){
+        customView.backButton.rx.tap.asDriver().drive(onNext: {
+            self.navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
         customView.crawlingButton.rx.tap.asDriver().drive(onNext: {
             do {
                 let film = try self.viewModel.film.value()

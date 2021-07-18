@@ -43,26 +43,38 @@ extension UIButton {
     }
 }
 
-func makeGenericButton(title: String = "",fontSize: CGFloat = 16.0, image: UIImage? = nil, style: UIButton.ButtonStyle = .primary) -> UIButton {
+func makeGenericButton(title: String = "",fontSize: CGFloat = 16.0, image: UIImage? = nil, style: UIButton.ButtonStyle = .primary, rounded: Bool = false) -> UIButton {
     let button = UIButton()
     button.setTitle(title, for: .normal)
+    
     if let imageView = image {
         button.setImage(imageView, for: .normal)
         button.titleEdgeInsets.left = 10.0
     }
+    
+    if rounded {
+        button.layer.cornerRadius = 4
+    }
+    
     switch style {
-    case .primary:
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemYellow
-        button.tintColor = .black
-        break
-    case .secondary:
-        button.setTitleColor(.systemYellow, for: .normal)
-        button.tintColor = .systemYellow
+        case .primary:
+            button.setTitleColor(.black, for: .normal)
+            button.backgroundColor = .systemYellow
+            button.tintColor = .black
+            break
+        case .secondary:
+            button.setTitleColor(.systemYellow, for: .normal)
+            button.tintColor = .systemYellow
     }
     
     button.snp.makeConstraints { make in
-        make.height.equalTo(40.0)
+        if (image != nil && title == "") {
+            make.width.equalTo(20.0)
+            make.height.equalTo(20.0)
+        }
+        else {
+            make.height.equalTo(40.0)
+        }
     }
     
     return button

@@ -35,11 +35,6 @@ class OpeningCrawlingViewController: UIViewController {
         viewModel.crawlingText
             .bind(to: (view as! OpeningCrawlingView).scrollableText.rx.text)
             .disposed(by: disposeBag)
-        
-        viewModel.crawlingText.subscribe(onNext: { (text) in
-            debugPrint(text)
-        }).disposed(by: disposeBag)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
