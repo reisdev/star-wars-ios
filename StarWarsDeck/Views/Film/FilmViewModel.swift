@@ -18,9 +18,7 @@ class FilmViewModel {
         self.filmURL.onNext(url)
         
         filmURL.subscribe(onNext: { url in
-            if(url.count == 0) {
-                return
-            }
+            if url.isEmpty { return }
             APIService.shared.get(url).subscribe(onNext: { (film: Film) in
                 self.film.onNext(film)
             }, onError : { error in

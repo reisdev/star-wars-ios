@@ -160,7 +160,7 @@
                                     <accessibilityTraits key="traits" button="YES" link="YES"/>
                                 </accessibility>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="20"/>
-                                <state key="normal" title="A New Hope">
+                                <state key="normal" title="Movies">
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>

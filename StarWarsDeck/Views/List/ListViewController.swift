@@ -55,15 +55,20 @@ class ListViewCell: UITableViewCell {
 
 class ListViewController<T: Decodable>: UIViewController {
     
+    private unowned var customView: ListView {
+        return self.view as! ListView
+    }
+    
     // MARK: Constants
     private let disposeBag = DisposeBag()
     
     // MARK: Variables
     var viewModel: ListViewModel = ListViewModel([],"");
     
-    convenience init(vm: ListViewModel) {
+    // MARK: Life cycle
+    convenience init(viewModel: ListViewModel) {
         self.init()
-        self.viewModel = vm
+        self.viewModel = viewModel
     }
     
     override func loadView() {
@@ -80,6 +85,7 @@ class ListViewController<T: Decodable>: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    // MARK: Setups
     private func setupUI(){
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.tintColor = .systemYellow
@@ -87,7 +93,7 @@ class ListViewController<T: Decodable>: UIViewController {
     }
     
     private func setupBinding(){
-        viewModel.urls.bind(to: (self.view as! ListView).itemsTableView.rx.items) { (tableView,index,url) in
+        viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
             let cell = ListViewCell(style: .default,reuseIdentifier: "cell")
             APIService.shared.get(url)
                 .subscribe(onNext: { (data: T) in
@@ -95,6 +101,29 @@ class ListViewController<T: Decodable>: UIViewController {
                 }).disposed(by: self.disposeBag)
             return cell
         }.disposed(by:disposeBag)
+        
+        /*
+        customView.itemsTableView.rx.itemSelected
+            .asControlEvent()
+            .subscribe(onNext: { indexPath in
+                let item = self.viewModel.getItemByIndex(index: indexPath.row)
+                
+                let type = item.split(separator: "/")[-2]
+                switch(type) {
+                    case "films":
+                        let controller = FilmViewController()
+                    case "people":
+                    
+                    case "planet":
+                    
+                    case "species":
+                        
+                    case "vehicles":
+                    case "starships":
+                
+                }
+            }).disposed(by: disposeBag)
+        */
         
         viewModel.title.subscribe(onNext: { (title) in
             self.navigationItem.title = title

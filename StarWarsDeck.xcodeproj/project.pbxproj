@@ -16,7 +16,8 @@
 		3E125EA6269B915D00E9A8D1 /* OpeningCrawlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */; };
 		3E125EA9269B974000E9A8D1 /* OpeningCrawlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */; };
 		3E125EAB269BC3D300E9A8D1 /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAA269BC3D300E9A8D1 /* FilmView.swift */; };
-		3E125EAE269C77E700E9A8D1 /* ViewBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */; };
+		3E125EAE269C77E700E9A8D1 /* UIView+ViewBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */; };
+		3EAA1223270157B300582317 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA1222270157B300582317 /* ViewCode.swift */; };
 		54C2F155F89B52E3BD92C0B6 /* Pods_StarWarsDeckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */; };
 		C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF609263452D800C79A94 /* PeopleModel.swift */; };
 		C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF611263452E900C79A94 /* VehicleModel.swift */; };
@@ -73,7 +74,8 @@
 		3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingView.swift; sourceTree = "<group>"; };
 		3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlingViewModel.swift; sourceTree = "<group>"; };
 		3E125EAA269BC3D300E9A8D1 /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
-		3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilders.swift; sourceTree = "<group>"; };
+		3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ViewBuilders.swift"; sourceTree = "<group>"; };
+		3EAA1222270157B300582317 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		6363EBC6B6A90815E4EE04C1 /* Pods-StarWarsDeckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7768DAE95DEF4DFB2EBEB84C /* Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E06FAC55274CE8701EC3CA8 /* Pods-StarWarsDeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckTests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckTests/Pods-StarWarsDeckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,9 +165,9 @@
 		3E125E9D2697E0E300E9A8D1 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				3E125E982697DA1C00E9A8D1 /* ListView.swift */,
 				3E125E9A2697E0CA00E9A8D1 /* ListViewController.swift */,
 				3E125EA026988AFB00E9A8D1 /* ListViewModel.swift */,
+				3E125E982697DA1C00E9A8D1 /* ListView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -184,18 +186,35 @@
 			isa = PBXGroup;
 			children = (
 				C54FF6D6263626BA00C79A94 /* OpeningCrawlingViewController.swift */,
-				3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */,
 				3E125EA8269B974000E9A8D1 /* OpeningCrawlingViewModel.swift */,
+				3E125EA5269B915D00E9A8D1 /* OpeningCrawlingView.swift */,
 			);
 			path = OpeningCrawling;
 			sourceTree = "<group>";
 		};
-		3E125EAC269C77C500E9A8D1 /* Utilities */ = {
+		3E125EAC269C77C500E9A8D1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3E125EAD269C77E700E9A8D1 /* ViewBuilders.swift */,
+				3EAA12212701570100582317 /* Extensions */,
+				3EAA1224270157B700582317 /* Class */,
 			);
-			path = Utilities;
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3EAA12212701570100582317 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3EAA1224270157B700582317 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3EAA1222270157B300582317 /* ViewCode.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		86A7B24A5FDBAA6D9A8834F2 /* Frameworks */ = {
@@ -276,7 +295,7 @@
 		C572EF3826344EFF00CB6086 /* StarWarsDeck */ = {
 			isa = PBXGroup;
 			children = (
-				3E125EAC269C77C500E9A8D1 /* Utilities */,
+				3E125EAC269C77C500E9A8D1 /* Utility */,
 				C54FF608263450F700C79A94 /* Core */,
 				C54FF62D263453C200C79A94 /* Models */,
 				C54FF6492634580A00C79A94 /* Views */,
@@ -531,6 +550,7 @@
 				3E125E9F269883C300E9A8D1 /* Model.swift in Sources */,
 				3E125EA9269B974000E9A8D1 /* OpeningCrawlingViewModel.swift in Sources */,
 				C572EF3E26344EFF00CB6086 /* ViewController.swift in Sources */,
+				3EAA1223270157B300582317 /* ViewCode.swift in Sources */,
 				3E125E992697DA1C00E9A8D1 /* ListView.swift in Sources */,
 				C54FF65326345EEF00C79A94 /* VehicleViewController.swift in Sources */,
 				C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */,
@@ -545,7 +565,7 @@
 				3E125EA126988AFB00E9A8D1 /* ListViewModel.swift in Sources */,
 				C54FF6172634530000C79A94 /* FilmModel.swift in Sources */,
 				C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */,
-				3E125EAE269C77E700E9A8D1 /* ViewBuilders.swift in Sources */,
+				3E125EAE269C77E700E9A8D1 /* UIView+ViewBuilders.swift in Sources */,
 				C54FF629263453BC00C79A94 /* SpecieModel.swift in Sources */,
 				C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */,
 				C54FF6372634561400C79A94 /* APIService.swift in Sources */,
@@ -725,6 +745,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RVT3J5N8K8;
 				INFOPLIST_FILE = StarWarsDeck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -744,6 +765,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RVT3J5N8K8;
 				INFOPLIST_FILE = StarWarsDeck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

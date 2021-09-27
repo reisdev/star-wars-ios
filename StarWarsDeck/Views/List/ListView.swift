@@ -14,36 +14,35 @@ import SnapKit
 class ListView: UIView {
     
     var itemsTableView = UITableView()
-    
     // - MARK: Init
     init(){
         super.init(frame: .zero)
-        addViews()
-        addConstraints()
-        addStyle()
+        setup()
     }
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        addViews()
-        addStyle()
-        addConstraints()
+        setup()
+    }
+}
+
+
+// MARK: ViewCode
+extension ListView: ViewCode {
+    internal func buildViewHierarchy() {
+        addSubview(itemsTableView)
     }
     
-    private func addStyle() {
+    internal func setupConstraints(){
+        itemsTableView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide)
+        }
+    }
+    
+    internal func setupStyle() {
         backgroundColor = .black
         tintColor = .yellow
         itemsTableView.backgroundColor = .black
         itemsTableView.separatorStyle = .none
-    }
-    
-    private func addViews() {
-        addSubview(itemsTableView)
-    }
-    
-    private func addConstraints(){
-        itemsTableView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
-        }
     }
 }

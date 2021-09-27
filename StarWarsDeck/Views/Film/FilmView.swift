@@ -12,96 +12,77 @@ import RxCocoa
 class FilmView: UIView {
     
     // MARK: Layout views
-    var contentView = UIView()
-    var verticalStack = makeGenericStackView(axis: .vertical)
-    var infoStackView = makeGenericStackView(axis: .horizontal)
-    var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0)
-    var producerStack = makeGenericStackView(axis: .horizontal)
-    var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually)
-    var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually)
-    var shortcutsStack = makeGenericStackView(axis: .vertical)
+    private lazy var contentView = UIView()
+    private lazy var verticalStack = makeGenericStackView(axis: .vertical, views: [backButton, movieTitle,movieYear])
+    private lazy var infoStackView = makeGenericStackView(axis: .horizontal)
+    private lazy var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0,views: [directorLabel, directorName])
+    private lazy var producerStack = makeGenericStackView(axis: .horizontal, views: [producerLabel, producerName])
+    private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton,vehiclesButton])
+    private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton,speciesButton])
+    private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine,secondShortcutLine])
     
     // MARK: Subviews
-    var backButton = makeGenericButton(image: UIImage(systemName: "chevron.left"),style: .secondary)
-    var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
-    var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
-    var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
-    var directorName = makeGenericLabel(fontSize: 18.0);
-    var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
-    var producerName = makeGenericLabel(fontSize: 18.0);
-    var crawlingButton = makeGenericButton(title: "Opening Crawling",image: UIImage(systemName: "play.fill"),rounded: true);
-    var charactersButton = makeGenericButton(title: "Characters", image: UIImage(systemName: "person.fill"),rounded: true);
-    var vehiclesButton = makeGenericButton(title: "Vehicles", image: UIImage(systemName: "airplane"),rounded: true)
-    var planetsButton = makeGenericButton(title: "Planets", image: UIImage(systemName: "globe"),rounded: true);
-    var speciesButton = makeGenericButton(title: "Species", image: UIImage(named: "dna"),rounded: true);
+    lazy var backButton = makeGenericButton(image: UIImage(systemName: "chevron.left"),style: .secondary)
+    lazy var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
+    lazy var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
+    lazy var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
+    lazy var directorName = makeGenericLabel(fontSize: 18.0);
+    lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
+    lazy var producerName = makeGenericLabel(fontSize: 18.0);
+    lazy var crawlingButton = makeGenericButton(title: "Opening Crawling",image: UIImage(systemName: "play.fill"), rounded: true);
+    lazy var charactersButton = makeGenericButton(title: "Characters", image: UIImage(systemName: "person.fill"), rounded: true);
+    lazy var vehiclesButton = makeGenericButton(title: "Vehicles", image: UIImage(systemName: "airplane"), rounded: true)
+    lazy var planetsButton = makeGenericButton(title: "Planets", image: UIImage(systemName: "globe"), rounded: true);
+    lazy var speciesButton = makeGenericButton(title: "Species", image: UIImage(named: "dna"), rounded: true);
     
     init(){
         super.init(frame: .zero)
-        addViews()
-        addConstraints()
-        setupUI()
+        setup()
     }
     
     required convenience init?(coder: NSCoder) {
         self.init()
+        setup()
     }
-    
-    private func addViews() {
+}
+
+// MARK: ViewCode
+extension FilmView: ViewCode {
+    internal func buildViewHierarchy() {
         addSubview(contentView)
         
-        infoStackView.addArrangedSubview(backButton)
-        infoStackView.addArrangedSubview(movieTitle)
-        infoStackView.addArrangedSubview(movieYear)
-        verticalStack.addArrangedSubview(infoStackView)
-        
-        directorStack.addArrangedSubview(directorLabel)
-        directorStack.addArrangedSubview(directorName)
-        verticalStack.addArrangedSubview(directorStack)
-        
-        producerStack.addArrangedSubview(producerLabel)
-        producerStack.addArrangedSubview(producerName)
-        verticalStack.addArrangedSubview(producerStack)
-        
-        verticalStack.addArrangedSubview(crawlingButton)
-        
-        firstShortcutLine.addArrangedSubview(charactersButton)
-        firstShortcutLine.addArrangedSubview(vehiclesButton)
-        
-        secondShortcutLine.addArrangedSubview(planetsButton)
-        secondShortcutLine.addArrangedSubview(speciesButton)
-        
-        shortcutsStack.addArrangedSubview(firstShortcutLine)
-        shortcutsStack.addArrangedSubview(secondShortcutLine)
-
-        verticalStack.addArrangedSubview(shortcutsStack)
+        [infoStackView,directorStack,producerStack,
+         crawlingButton,shortcutsStack].forEach {
+            verticalStack.addArrangedSubview($0)
+         }
         
         contentView.addSubview(verticalStack)
     }
     
-    private func addConstraints() {
+    internal func setupConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
         }
         
         verticalStack.snp.makeConstraints { make in
-            make.left.equalTo(contentView.snp.left).inset(20)
-            make.right.equalTo(contentView.snp.right).inset(20)
+            make.left.equalTo(contentView.snp.left).inset(20.0)
+            make.right.equalTo(contentView.snp.right).inset(20.0)
         }
         
         directorStack.snp.makeConstraints { make in
-            make.width.equalTo(verticalStack.snp.width)
+            make.width.equalToSuperview()
         }
         
         producerStack.snp.makeConstraints { make in
-            make.width.equalTo(verticalStack.snp.width)
+            make.width.equalToSuperview()
         }
         
         shortcutsStack.snp.makeConstraints { make in
-            make.width.equalTo(verticalStack.snp.width)
+            make.width.equalToSuperview()
         }
     }
     
-    private func setupUI() {
+    internal func setupStyle() {
         backgroundColor = .black
         
         verticalStack.setCustomSpacing(50.0, after: infoStackView)
