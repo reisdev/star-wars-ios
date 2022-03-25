@@ -9,12 +9,12 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class FilmView: UIView {
+final class FilmView: UIView {
     
     // MARK: Layout views
     private lazy var contentView = UIView()
-    private lazy var verticalStack = makeGenericStackView(axis: .vertical, views: [backButton, movieTitle,movieYear])
-    private lazy var infoStackView = makeGenericStackView(axis: .horizontal)
+    private lazy var verticalStack = makeGenericStackView(axis: .vertical)
+    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle,movieYear])
     private lazy var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0,views: [directorLabel, directorName])
     private lazy var producerStack = makeGenericStackView(axis: .horizontal, views: [producerLabel, producerName])
     private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton,vehiclesButton])
@@ -83,7 +83,7 @@ extension FilmView: ViewCode {
     }
     
     internal func setupStyle() {
-        backgroundColor = .black
+        backgroundColor = .darkGray
         
         verticalStack.setCustomSpacing(50.0, after: infoStackView)
         verticalStack.setCustomSpacing(30.0, after: producerStack)

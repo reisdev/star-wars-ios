@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol Model: Codable {    
+protocol Model: Codable {
     func getCellInfo() -> String
 }

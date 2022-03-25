@@ -9,63 +9,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ListViewCell: UITableViewCell {
-    
-    let button = UIButton(type: .custom)
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        textLabel!.textColor = .systemYellow
-        backgroundColor = .black
-        
-        selectionStyle = .none
-        accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
-
-        accessoryView?.backgroundColor = .black
-        accessoryView?.tintColor = .systemYellow
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
-            backgroundColor = .systemYellow
-            
-            accessoryView?.backgroundColor = .systemYellow
-            accessoryView?.superview?.backgroundColor = .systemYellow
-            accessoryView?.tintColor = .black
-            
-            textLabel?.textColor = .black
-        } else {
-            backgroundColor = .black
-            
-            accessoryView?.backgroundColor = .black
-            accessoryView?.tintColor = .systemYellow
-            accessoryView?.superview?.backgroundColor = .black
-            
-            textLabel?.textColor = .systemYellow
-        }
-    }
-}
-
-class ListViewController<T: Decodable>: UIViewController {
+class ListViewController: UIViewController {
     
     private unowned var customView: ListView {
         return self.view as! ListView
     }
     
-    // MARK: Constants
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    // MARK: CONSTANTS
     private let disposeBag = DisposeBag()
     
-    // MARK: Variables
+    // MARK: PROPERTIES
     var viewModel: ListViewModel = ListViewModel([],"");
+    private var searchController = UISearchController(searchResultsController: nil)
     
-    // MARK: Life cycle
+    // MARK: View Lifecycle
     convenience init(viewModel: ListViewModel) {
         self.init()
         self.viewModel = viewModel
@@ -87,21 +48,37 @@ class ListViewController<T: Decodable>: UIViewController {
     
     // MARK: Setups
     private func setupUI(){
-        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.tintColor = .systemYellow
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        setupNavigation()
+    }
+    
+    private func setupNavigation() {
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .systemYellow
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(named: "magnifyingglass"), style: .plain, target: self, action: #selector(setupSearchBar))
+    }
+    
+    @objc private func setupSearchBar() {
+        navigationController?.navigationBar.showSearchField()
     }
     
     private func setupBinding(){
         viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
-            let cell = ListViewCell(style: .default,reuseIdentifier: "cell")
+            let cell = ListViewCell(style: .default, reuseIdentifier: "cell")
             APIService.shared.get(url)
-                .subscribe(onNext: { (data: T) in
-                    cell.textLabel!.text = (data as! Model).getCellInfo()
+                .subscribe(onNext: { (data: Model) in
+                    cell.textLabel?.text = data.getCellInfo()
                 }).disposed(by: self.disposeBag)
             return cell
         }.disposed(by:disposeBag)
         
+        customView.searchTextField.rx.controlEvent([.editingChanged])
+            .asObservable().subscribe(onDisposed:  { [weak self] in
+                guard let self = self else { return }
+                guard let text = self.customView.searchTextField.text else { return }
+                self.viewModel.search(text: text)
+            }).disposed(by: disposeBag)
+
         /*
         customView.itemsTableView.rx.itemSelected
             .asControlEvent()
@@ -128,6 +105,12 @@ class ListViewController<T: Decodable>: UIViewController {
         viewModel.title.subscribe(onNext: { (title) in
             self.navigationItem.title = title
         }).disposed(by: disposeBag)
+        
+    }
+}
+
+extension ListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
     }
 }

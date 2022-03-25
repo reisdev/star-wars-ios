@@ -7,8 +7,9 @@
 
 import Foundation
 
-class Planet: Model {
+struct Planet: Model {
     var name: String
+    var url: String
     
     func getCellInfo() -> String {
         return name

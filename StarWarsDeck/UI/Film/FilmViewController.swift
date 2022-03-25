@@ -18,6 +18,10 @@ class FilmViewController: UIViewController {
     private let disposeBag = DisposeBag()
     var viewModel: FilmViewModel = FilmViewModel("");
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     convenience init(viewModel: FilmViewModel) {
         self.init()
         self.viewModel = viewModel

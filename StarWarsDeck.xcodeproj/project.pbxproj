@@ -45,6 +45,13 @@
 		C572EF4626344F0100CB6086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */; };
 		C572EF5126344F0200CB6086 /* StarWarsDeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF5026344F0200CB6086 /* StarWarsDeckTests.swift */; };
 		C572EF5C26344F0200CB6086 /* StarWarsDeckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */; };
+		CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */; };
+		CED7797427760E1E003002BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797327760E1E003002BF /* HomeView.swift */; };
+		CED7797927761D8B003002BF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797827761D8B003002BF /* HomeViewModel.swift */; };
+		CED7797E277641A6003002BF /* HomeShortcutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797D277641A6003002BF /* HomeShortcutViewCell.swift */; };
+		CED779832776623A003002BF /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED779822776623A003002BF /* Response.swift */; };
+		CEDED6B127A8B0400056497D /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED6B027A8B0400056497D /* ListViewCell.swift */; };
+		CEDED6B927A8B44C0056497D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED6B827A8B44C0056497D /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +121,13 @@
 		C572EF5726344F0200CB6086 /* StarWarsDeckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsDeckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsDeckUITests.swift; sourceTree = "<group>"; };
 		C572EF5D26344F0200CB6086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		CED7797327760E1E003002BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CED7797827761D8B003002BF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CED7797D277641A6003002BF /* HomeShortcutViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShortcutViewCell.swift; sourceTree = "<group>"; };
+		CED779822776623A003002BF /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		CEDED6B027A8B0400056497D /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		CEDED6B827A8B44C0056497D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E9B0BA2E0142526102012900 /* Pods-StarWarsDeckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeckUITests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeckUITests/Pods-StarWarsDeckUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED63909D5A39BF03B998CF42 /* Pods_StarWarsDeck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFACB68B511D0C4350AB0649 /* Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck-StarWarsDeckUITests/Pods-StarWarsDeck-StarWarsDeckUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +181,7 @@
 			children = (
 				3E125E9A2697E0CA00E9A8D1 /* ListViewController.swift */,
 				3E125EA026988AFB00E9A8D1 /* ListViewModel.swift */,
+				CEDED6B027A8B0400056497D /* ListViewCell.swift */,
 				3E125E982697DA1C00E9A8D1 /* ListView.swift */,
 			);
 			path = List;
@@ -192,29 +207,13 @@
 			path = OpeningCrawling;
 			sourceTree = "<group>";
 		};
-		3E125EAC269C77C500E9A8D1 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				3EAA12212701570100582317 /* Extensions */,
-				3EAA1224270157B700582317 /* Class */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
 		3EAA12212701570100582317 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */,
+				CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		3EAA1224270157B700582317 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				3EAA1222270157B300582317 /* ViewCode.swift */,
-			);
-			path = Class;
 			sourceTree = "<group>";
 		};
 		86A7B24A5FDBAA6D9A8834F2 /* Frameworks */ = {
@@ -230,7 +229,6 @@
 		C54FF608263450F700C79A94 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C54FF6362634561400C79A94 /* APIService.swift */,
 				C572EF3926344EFF00CB6086 /* AppDelegate.swift */,
 				C572EF3B26344EFF00CB6086 /* SceneDelegate.swift */,
 			);
@@ -247,25 +245,10 @@
 				C54FF61B2634531600C79A94 /* StarshipModel.swift */,
 				C54FF611263452E900C79A94 /* VehicleModel.swift */,
 				3E125E9E269883C300E9A8D1 /* Model.swift */,
+				CED779822776623A003002BF /* Response.swift */,
+				CEDED6B827A8B44C0056497D /* Result.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		C54FF6492634580A00C79A94 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3E125EA42698D18100E9A8D1 /* Film */,
-				3E125E9D2697E0E300E9A8D1 /* List */,
-				3E125EA7269B916A00E9A8D1 /* OpeningCrawling */,
-				C54FF642263457F700C79A94 /* PeopleViewController.swift */,
-				C54FF64A26345ED200C79A94 /* PlanetViewController.swift */,
-				C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */,
-				C54FF65826345F0300C79A94 /* StarshipViewController.swift */,
-				C54FF65126345EEF00C79A94 /* VehicleViewController.swift */,
-				C54FF6BC2634FF1500C79A94 /* Main.storyboard */,
-				C54FF6C72635EFF700C79A94 /* HomeViewController.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		C572EF2D26344EFF00CB6086 = {
@@ -295,10 +278,10 @@
 		C572EF3826344EFF00CB6086 /* StarWarsDeck */ = {
 			isa = PBXGroup;
 			children = (
-				3E125EAC269C77C500E9A8D1 /* Utility */,
+				CED7797127760B5F003002BF /* UI */,
+				CED7796F27760A48003002BF /* Domain */,
+				3EAA12212701570100582317 /* Extensions */,
 				C54FF608263450F700C79A94 /* Core */,
-				C54FF62D263453C200C79A94 /* Models */,
-				C54FF6492634580A00C79A94 /* Views */,
 				C572EF4226344F0100CB6086 /* Assets.xcassets */,
 				C572EF4726344F0100CB6086 /* Info.plist */,
 				C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */,
@@ -323,6 +306,52 @@
 				C572EF5B26344F0200CB6086 /* StarWarsDeckUITests.swift */,
 			);
 			path = StarWarsDeckUITests;
+			sourceTree = "<group>";
+		};
+		CED7796F27760A48003002BF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CED7797027760A53003002BF /* Services */,
+				C54FF62D263453C200C79A94 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CED7797027760A53003002BF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C54FF6362634561400C79A94 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CED7797127760B5F003002BF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CED7797227760E0C003002BF /* Home */,
+				3E125EA42698D18100E9A8D1 /* Film */,
+				3E125E9D2697E0E300E9A8D1 /* List */,
+				3E125EA7269B916A00E9A8D1 /* OpeningCrawling */,
+				C54FF642263457F700C79A94 /* PeopleViewController.swift */,
+				C54FF64A26345ED200C79A94 /* PlanetViewController.swift */,
+				C54FF6622634D7BF00C79A94 /* SpecieViewController.swift */,
+				C54FF65826345F0300C79A94 /* StarshipViewController.swift */,
+				C54FF65126345EEF00C79A94 /* VehicleViewController.swift */,
+				C54FF6BC2634FF1500C79A94 /* Main.storyboard */,
+				3EAA1222270157B300582317 /* ViewCode.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CED7797227760E0C003002BF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C54FF6C72635EFF700C79A94 /* HomeViewController.swift */,
+				CED7797327760E1E003002BF /* HomeView.swift */,
+				CED7797827761D8B003002BF /* HomeViewModel.swift */,
+				CED7797D277641A6003002BF /* HomeShortcutViewCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,6 +588,10 @@
 				C54FF65A26345F0300C79A94 /* StarshipViewController.swift in Sources */,
 				C54FF624263453A000C79A94 /* PlanetModel.swift in Sources */,
 				3E125EAB269BC3D300E9A8D1 /* FilmView.swift in Sources */,
+				CED7797427760E1E003002BF /* HomeView.swift in Sources */,
+				CED7797E277641A6003002BF /* HomeShortcutViewCell.swift in Sources */,
+				CEDED6B927A8B44C0056497D /* Result.swift in Sources */,
+				CED7797927761D8B003002BF /* HomeViewModel.swift in Sources */,
 				C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */,
 				C54FF61C2634531600C79A94 /* StarshipModel.swift in Sources */,
 				3E125EA32698D17700E9A8D1 /* FilmViewModel.swift in Sources */,
@@ -566,11 +599,14 @@
 				C54FF6172634530000C79A94 /* FilmModel.swift in Sources */,
 				C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */,
 				3E125EAE269C77E700E9A8D1 /* UIView+ViewBuilders.swift in Sources */,
+				CEDED6B127A8B0400056497D /* ListViewCell.swift in Sources */,
 				C54FF629263453BC00C79A94 /* SpecieModel.swift in Sources */,
 				C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */,
+				CED779832776623A003002BF /* Response.swift in Sources */,
 				C54FF6372634561400C79A94 /* APIService.swift in Sources */,
 				C54FF64C26345ED200C79A94 /* PlanetViewController.swift in Sources */,
 				C572EF3A26344EFF00CB6086 /* AppDelegate.swift in Sources */,
+				CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */,
 				C54FF6642634D7BF00C79A94 /* SpecieViewController.swift in Sources */,
 				C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */,
 				3E125E9B2697E0CA00E9A8D1 /* ListViewController.swift in Sources */,

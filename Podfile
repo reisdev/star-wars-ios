@@ -13,6 +13,7 @@ target 'StarWarsDeck' do
   pod 'Alamofire'
   pod 'SnapKit'
   pod 'RxAlamofire'
+  pod 'lottie-ios'
 
   target 'StarWarsDeckTests' do
     inherit! :search_paths
