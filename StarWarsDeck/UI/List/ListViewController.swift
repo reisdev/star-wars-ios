@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ListViewController: UIViewController {
+class ListViewController<T: Model>: UIViewController {
     
     private unowned var customView: ListView {
         return self.view as! ListView
@@ -66,7 +66,7 @@ class ListViewController: UIViewController {
         viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
             let cell = ListViewCell(style: .default, reuseIdentifier: "cell")
             APIService.shared.get(url)
-                .subscribe(onNext: { (data: Model) in
+                .subscribe(onNext: { (data: T) in
                     cell.textLabel?.text = data.getCellInfo()
                 }).disposed(by: self.disposeBag)
             return cell
@@ -79,38 +79,28 @@ class ListViewController: UIViewController {
                 self.viewModel.search(text: text)
             }).disposed(by: disposeBag)
 
-        /*
         customView.itemsTableView.rx.itemSelected
             .asControlEvent()
             .subscribe(onNext: { indexPath in
-                let item = self.viewModel.getItemByIndex(index: indexPath.row)
+                let link = self.viewModel.getItemByIndex(index: indexPath.row)
                 
-                let type = item.split(separator: "/")[-2]
+                guard let url = URL(string: link) else { return }
+                
+                let type = url.pathComponents[url.pathComponents.endIndex - 2]
+                
                 switch(type) {
-                    case "films":
-                        let controller = FilmViewController()
-                    case "people":
-                    
-                    case "planet":
-                    
-                    case "species":
-                        
-                    case "vehicles":
-                    case "starships":
-                
+                case "films":
+                    let viewModel = FilmViewModel(link)
+                    let controller = FilmViewController(viewModel: viewModel)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                default:
+                    break
                 }
             }).disposed(by: disposeBag)
-        */
         
         viewModel.title.subscribe(onNext: { (title) in
             self.navigationItem.title = title
         }).disposed(by: disposeBag)
-        
-    }
-}
-
-extension ListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
     }
 }
