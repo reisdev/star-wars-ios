@@ -1,5 +1,5 @@
 //
-//  FilmViewController.swift
+//  StartshipViewController.swift
 //  StarWarsDeck
 //
 //  Created by ReisDev on 24/04/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilmViewController: UIViewController {
+class StarshipViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

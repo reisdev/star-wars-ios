@@ -1,5 +1,5 @@
 //
-//  StartshipViewController.swift
+//  SpecieViewController.swift
 //  StarWarsDeck
 //
 //  Created by ReisDev on 24/04/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartshipViewController: UIViewController {
+class SpecieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
