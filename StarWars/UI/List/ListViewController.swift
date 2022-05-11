@@ -47,16 +47,13 @@ class ListViewController: UIViewController {
         setupBinding()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
     // MARK: Setups
     private func setupUI(){
         setupNavigation()
     }
     
     private func setupNavigation() {
+        self.title = viewModel.title.value
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .systemYellow
         navigationController?.setNavigationBarHidden(false, animated: true)
