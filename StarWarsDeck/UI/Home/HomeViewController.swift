@@ -23,9 +23,13 @@ final class HomeViewController: UIViewController {
     var viewModel: HomeViewModel = HomeViewModel()
     
     // MARK: Init
-    convenience init(viewModel: HomeViewModel) {
-        self.init()
-        self.viewModel = viewModel
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*,unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: View Lyfecycle
@@ -59,10 +63,11 @@ final class HomeViewController: UIViewController {
             .asControlEvent()
             .subscribe(onNext: { [weak self] (indexPath) in
                 guard let self = self else { return }
-                let cell = self.customView.shortcutsCollectionView.cellForItem(at: indexPath)
+                let cell = self.customView.shortcutsCollectionView.cellForItem(at: indexPath) as? HomeShortcutViewCell
                 let item = self.viewModel.getItemByIndexPath(indexPath: indexPath)
                 
                 cell?.isUserInteractionEnabled = false
+                cell?.setLoading(with: true)
                 APIService.shared.get(item.url).subscribe(onNext: { (response: Response) in
                     let urls = response.results.map { $0.url }
                     let title = item.title
@@ -102,8 +107,10 @@ final class HomeViewController: UIViewController {
                         return
                     }
                     cell?.isUserInteractionEnabled = true
+                    cell?.setLoading(with: false)
                 }, onError: { error in
                     cell?.isUserInteractionEnabled = true
+                    cell?.setLoading(with: false)
                 }).disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
     }

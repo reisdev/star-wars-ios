@@ -10,30 +10,31 @@ import UIKit
 import SnapKit
 
 final class HomeView: UIView {
-    
     // MARK: Constants
     private struct Metrics {
         static let logoTopMargin = 50
-        static let contentSpacing = 16
-        static let imageSize = 150
-        static let buttonSize = 105
+        static let contentSpacing = 16.0
+        static let imageSize = 105
+        static let buttonHeight = 80.0
         static let collectionViewInset = 64
     }
     
     // MARK: Views
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "star-wars-logo"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     let shortcutsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: Metrics.buttonSize, height: Metrics.buttonSize)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 24.0, height: Metrics.buttonHeight)
         layout.minimumInteritemSpacing = 10.0
+        layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HomeShortcutViewCell.self, forCellWithReuseIdentifier: String(describing: HomeShortcutViewCell.self))
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .clear
         return collectionView
     }()
@@ -53,7 +54,7 @@ extension HomeView: ViewCode {
     internal func setupConstraints() {
         logoImageView.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top).inset(Metrics.logoTopMargin)
-            make.leading.trailing.equalToSuperview().inset(Metrics.contentSpacing)
+            make.centerX.equalToSuperview()
             make.size.equalTo(Metrics.imageSize)
         }
         
@@ -63,5 +64,14 @@ extension HomeView: ViewCode {
             make.bottom.equalToSuperview().inset(Metrics.contentSpacing)
         }
     }
+    
+    internal func setupStyle() {
+        shortcutsCollectionView.delegate = self
+    }
 }
 
+extension HomeView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width-Metrics.contentSpacing)/2 , height: Metrics.buttonHeight)
+    }
+}

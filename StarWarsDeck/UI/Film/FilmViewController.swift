@@ -33,8 +33,14 @@ class FilmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupBindings()
         setupInteractions()
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [.font : UIFont.systemFont(ofSize: 20.0, weight: .bold), .foregroundColor: UIColor.systemYellow]
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     private func setupBindings(){
@@ -49,90 +55,65 @@ class FilmViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.film.subscribe(onNext: { film in
-            self.customView.movieTitle.text = film.title
+            self.title = film.title
+
             self.customView.movieYear.text = film.releaseYear
-            
             self.customView.directorName.text = film.director
             self.customView.producerName.text = film.producer
+            
+            self.customView.movieCoverImageView.image = .init(named: "episode\(film.episodeId)")
         }).disposed(by: self.disposeBag)
     }
     
     private func setupInteractions(){
-        customView.backButton.rx.tap.asDriver().drive(onNext: {
-            self.navigationController?.popViewController(animated: true)
-        }).disposed(by: disposeBag)
-        
         customView.crawlingButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                do {
-                    let film = try self.viewModel.film.value()
-                    let viewModel = OpeningCrawlingViewModel(film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil))
-                    let controller = OpeningCrawlingViewController(viewModel: viewModel)
-                    
-                    self.navigationController?.showDetailViewController(controller,sender: nil)
-                } catch(let error){
-                    debugPrint(error)
-                }
+                let film = self.viewModel.film.value
+                let viewModel = OpeningCrawlingViewModel(film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil))
+                let controller = OpeningCrawlingViewController(viewModel: viewModel)
+                
+                self.navigationController?.showDetailViewController(controller,sender: nil)
             }).disposed(by: disposeBag)
         
         customView.charactersButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                do {
-                    let controller = ListViewController<People>()
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().characters)
-                    controller.viewModel.title.accept("Characters")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
+                let controller = ListViewController<People>()
+                controller.viewModel.urls.accept(self.viewModel.film.value.characters)
+                controller.viewModel.title.accept("Characters")
+                
+                self.navigationController?.pushViewController(controller, animated: true)
             }).disposed(by: disposeBag)
         
         customView.speciesButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                do {
-                    let controller = ListViewController<Specie>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().species)
-                    controller.viewModel.title.accept("Species")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
+                let controller = ListViewController<Specie>()
+                controller.viewModel.urls.accept(self.viewModel.film.value.species)
+                controller.viewModel.title.accept("Species")
+                
+                self.navigationController?.pushViewController(controller, animated: true)
             }).disposed(by: disposeBag)
         
         customView.planetsButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                do {
-                    let controller = ListViewController<Planet>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().planets)
-                    controller.viewModel.title.accept("Planets")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
+                let controller = ListViewController<Planet>()
+                controller.viewModel.urls.accept(self.viewModel.film.value.planets)
+                controller.viewModel.title.accept("Planets")
+                
+                self.navigationController?.pushViewController(controller, animated: true)
             }).disposed(by: disposeBag)
         
         customView.vehiclesButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                do {
-                    let controller = ListViewController<Vehicle>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().vehicles)
-                    controller.viewModel.title.accept("Vehicles")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
+                let controller = ListViewController<Vehicle>()
+                controller.viewModel.urls.accept(self.viewModel.film.value.vehicles)
+                controller.viewModel.title.accept("Vehicles")
+                
+                self.navigationController?.pushViewController(controller, animated: true)
             }).disposed(by: disposeBag)
     }
 }

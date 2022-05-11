@@ -7,29 +7,44 @@
 
 import Foundation
 import UIKit
-import Lottie
+import RxSwift
 
 final class HomeShortcutViewCell: UICollectionViewCell {
     
     // MARK: Constants
     private struct Metrics {
-        static let spacing: CGFloat = 16
-        static let radius: CGFloat = 8
-        static let size: CGFloat = 80
+        static let verticalSpacing: CGFloat = 10
+        static let horizontalSpacing: CGFloat = 16
+        static let radius: CGFloat = 16
+        static let size: CGFloat = 36
     }
     
+    // MARK: Properties
+    private var isLoading = BehaviorSubject<Bool>(value: false)
+    private var disposeBag = DisposeBag()
+    
     // MARK: Views
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = Metrics.verticalSpacing
+        return stack
+    }()
+    
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .black
         imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.textColor = .black
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         return label
     }()
     
@@ -41,7 +56,7 @@ final class HomeShortcutViewCell: UICollectionViewCell {
     
     // MARK: Init
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         setup()
     }
     
@@ -53,29 +68,51 @@ final class HomeShortcutViewCell: UICollectionViewCell {
         iconImageView.image = data.icon
         titleLabel.text = data.title
     }
+    
+    public func setLoading(with isLoading: Bool) {
+        self.isLoading.onNext(isLoading)
+    }
 }
 
 extension HomeShortcutViewCell: ViewCode {
-
     internal func buildViewHierarchy() {
-        addSubview(iconImageView)
-        addSubview(titleLabel)
+        stackView.addArrangedSubview(iconImageView)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(loadingView)
+        
+        addSubview(stackView)
     }
     
     internal func setupConstraints() {
-        iconImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metrics.spacing)
-            make.leading.trailing.equalToSuperview().inset(Metrics.spacing)
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(Metrics.verticalSpacing)
+            make.leading.trailing.equalToSuperview().inset(Metrics.horizontalSpacing)
         }
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(Metrics.spacing)
-            make.leading.trailing.equalToSuperview().inset(Metrics.spacing)
-            make.bottom.equalToSuperview().inset(Metrics.spacing)
+        
+        iconImageView.snp.makeConstraints { make in
+            make.width.equalTo(Metrics.size)
         }
     }
     
     internal func setupStyle() {
         backgroundColor = .systemYellow
         layer.cornerRadius = Metrics.radius
+        
+        isLoading
+            .bind(to: iconImageView.rx.isHidden, titleLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        isLoading
+            .map { !$0 }
+            .bind(to: loadingView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        isLoading.subscribe(onNext: { loading in
+            if loading {
+                self.loadingView.startAnimating()
+            } else {
+                self.loadingView.stopAnimating()
+            }
+        }).disposed(by: disposeBag)
     }
 }
