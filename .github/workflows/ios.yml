@@ -17,7 +17,6 @@ jobs:
       - name: Install Packages
         run: |
           pod install
-      - uses: ty0x2333/cocoapods-action@master
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
