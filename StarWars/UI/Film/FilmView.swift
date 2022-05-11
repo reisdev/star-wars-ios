@@ -20,11 +20,12 @@ protocol FilmViewDelegate: AnyObject {
 final class FilmView: UIView {
     
     // MARK: Layout views
+    private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
     private lazy var verticalStack = makeGenericStackView(axis: .vertical)
-    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle,movieYear])
     private lazy var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0,views: [directorLabel, directorName])
     private lazy var producerStack = makeGenericStackView(axis: .horizontal, views: [producerLabel, producerName])
+    private lazy var yearStack = makeGenericStackView(axis: .horizontal, views: [movieYearLabel, movieYear])
     private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton,vehiclesButton])
     private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton,speciesButton])
     private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine,secondShortcutLine])
@@ -109,10 +110,12 @@ final class FilmView: UIView {
 // MARK: ViewCode
 extension FilmView: ViewCode {
     internal func buildViewHierarchy() {
-        addSubview(contentView)
+        addSubview(scrollView)
         
-        [infoStackView,directorStack,producerStack,
-         crawlingButton,shortcutsStack].forEach {
+        scrollView.addSubview(contentView)
+        
+        [movieCoverImageView, directorStack, producerStack,
+         yearStack, crawlingButton, shortcutsStack].forEach {
             verticalStack.addArrangedSubview($0)
          }
         
@@ -120,8 +123,13 @@ extension FilmView: ViewCode {
     }
     
     internal func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.bottom.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalToSuperview()
         }
         
         verticalStack.snp.makeConstraints { make in
@@ -144,8 +152,5 @@ extension FilmView: ViewCode {
     
     internal func setupStyle() {
         backgroundColor = .darkGray
-        
-        verticalStack.setCustomSpacing(50.0, after: infoStackView)
-        verticalStack.setCustomSpacing(30.0, after: producerStack)
     }
 }

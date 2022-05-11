@@ -46,6 +46,11 @@ class FilmViewController: UIViewController {
         setupInteractions()
     }
     
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [.font : UIFont.systemFont(ofSize: 20.0, weight: .bold), .foregroundColor: UIColor.systemYellow]
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
     private func setupBindings(){
         viewModel.props.subscribe(onNext: { [weak self] props in
             guard let self, let props else { return }
