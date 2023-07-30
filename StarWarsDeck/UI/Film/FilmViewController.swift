@@ -11,62 +11,57 @@ import RxCocoa
 
 class FilmViewController: UIViewController {
     
-    private unowned var customView: FilmView {
-        return view as! FilmView
-    }
+    private lazy var filmView: FilmView = {
+        return FilmView()
+    }()
 
     private let disposeBag = DisposeBag()
-    var viewModel: FilmViewModel = FilmViewModel("");
+    private let viewModel: FilmViewModelProtocol
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    convenience init(viewModel: FilmViewModel) {
-        self.init()
+    init(viewModel: FilmViewModelProtocol) {
         self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
-        self.view = FilmView()
+        self.view = filmView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchMovie()
+        
         setupBindings()
         setupInteractions()
     }
     
     private func setupBindings(){
-        
-        viewModel.isFilmSet
-            .bind(to: customView.charactersButton.rx.isEnabled, customView.speciesButton.rx.isEnabled, customView.planetsButton.rx.isEnabled, customView.vehiclesButton.rx.isEnabled, customView.crawlingButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        viewModel.isFilmSet
-            .map({ $0 ? CGFloat(1) : CGFloat(0.5) })
-            .bind(to: customView.speciesButton.rx.alpha, customView.planetsButton.rx.alpha, customView.vehiclesButton.rx.alpha, customView.crawlingButton.rx.alpha, customView.charactersButton.rx.alpha)
-            .disposed(by: disposeBag)
-        
-        viewModel.film.subscribe(onNext: { film in
-            self.customView.movieTitle.text = film.title
-            self.customView.movieYear.text = film.releaseYear
-            
-            self.customView.directorName.text = film.director
-            self.customView.producerName.text = film.producer
+        viewModel.props.subscribe(onNext: { [weak self] props in
+            guard let self else { return }
+            self.filmView.setup(with: props)
         }).disposed(by: self.disposeBag)
     }
     
-    private func setupInteractions(){
-        customView.backButton.rx.tap.asDriver().drive(onNext: {
+    private func setupInteractions() {
+        filmView.backButton.rx.tap.asDriver().drive(onNext: {
             self.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        customView.crawlingButton.rx.tap
+        /*
+        filmView.crawlingButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 do {
-                    let film = try self.viewModel.film.value()
+                    let film = try self.viewModel.props.value()
                     let viewModel = OpeningCrawlingViewModel(film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil))
                     let controller = OpeningCrawlingViewController(viewModel: viewModel)
                     
@@ -76,12 +71,12 @@ class FilmViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        customView.charactersButton.rx.tap
+        filmView.charactersButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 do {
                     let controller = ListViewController<People>()
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().characters)
+                    controller.viewModel.urls.accept(try self.viewModel.props.value().characters)
                     controller.viewModel.title.accept("Characters")
                     
                     self.navigationController?.pushViewController(controller, animated: true)
@@ -90,13 +85,13 @@ class FilmViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        customView.speciesButton.rx.tap
+        filmView.speciesButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 do {
                     let controller = ListViewController<Specie>()
                     
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().species)
+                    controller.viewModel.urls.accept(try self.viewModel.props.value().species)
                     controller.viewModel.title.accept("Species")
                     
                     self.navigationController?.pushViewController(controller, animated: true)
@@ -105,13 +100,13 @@ class FilmViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        customView.planetsButton.rx.tap
+        filmView.planetsButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 do {
                     let controller = ListViewController<Planet>()
                     
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().planets)
+                    controller.viewModel.urls.accept(try self.viewModel.props.value().planets)
                     controller.viewModel.title.accept("Planets")
                     
                     self.navigationController?.pushViewController(controller, animated: true)
@@ -120,13 +115,13 @@ class FilmViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        customView.vehiclesButton.rx.tap
+        filmView.vehiclesButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 do {
                     let controller = ListViewController<Vehicle>()
                     
-                    controller.viewModel.urls.accept(try self.viewModel.film.value().vehicles)
+                    controller.viewModel.urls.accept(try self.viewModel.props.value().vehicles)
                     controller.viewModel.title.accept("Vehicles")
                     
                     self.navigationController?.pushViewController(controller, animated: true)
@@ -134,6 +129,7 @@ class FilmViewController: UIViewController {
                     debugPrint(error)
                 }
             }).disposed(by: disposeBag)
+         */
     }
 }
 

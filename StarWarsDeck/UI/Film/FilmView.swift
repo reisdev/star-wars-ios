@@ -44,6 +44,13 @@ final class FilmView: UIView {
         self.init()
         setup()
     }
+    
+    func setup(with props: FilmViewProps) {
+        movieTitle.text = props.title
+        movieYear.text = props.year
+        directorName.text = props.director
+        producerName.text = props.producer
+    }
 }
 
 // MARK: ViewCode

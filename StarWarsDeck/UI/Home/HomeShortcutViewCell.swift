@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Lottie
+import SnapKit
 
 final class HomeShortcutViewCell: UICollectionViewCell {
     
@@ -16,9 +16,19 @@ final class HomeShortcutViewCell: UICollectionViewCell {
         static let spacing: CGFloat = 16
         static let radius: CGFloat = 8
         static let size: CGFloat = 80
+        static let iconSize: CGFloat = 40
     }
     
     // MARK: Views
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Metrics.spacing
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .black
@@ -58,19 +68,19 @@ final class HomeShortcutViewCell: UICollectionViewCell {
 extension HomeShortcutViewCell: ViewCode {
 
     internal func buildViewHierarchy() {
-        addSubview(iconImageView)
-        addSubview(titleLabel)
+        addSubview(stackView)
+        
+        stackView.addArrangedSubview(iconImageView)
+        stackView.addArrangedSubview(titleLabel)
     }
     
     internal func setupConstraints() {
-        iconImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metrics.spacing)
-            make.leading.trailing.equalToSuperview().inset(Metrics.spacing)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(Metrics.spacing)
         }
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(Metrics.spacing)
-            make.leading.trailing.equalToSuperview().inset(Metrics.spacing)
-            make.bottom.equalToSuperview().inset(Metrics.spacing)
+        
+        iconImageView.snp.makeConstraints { make in
+            make.size.equalTo(Metrics.iconSize)
         }
     }
     

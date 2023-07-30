@@ -8,27 +8,27 @@
 import Foundation
 import RxSwift
 
-class FilmViewModel {
+protocol FilmViewModelProtocol {
+    var props: PublishSubject<FilmViewProps> { get }
     
-    var filmURL: BehaviorSubject<String> = BehaviorSubject<String>(value: "")
-    let film: BehaviorSubject<Film> = BehaviorSubject(value: Film());
+    func fetchMovie()
+}
+
+final class FilmViewModel: FilmViewModelProtocol {
+    
     let disposeBag = DisposeBag()
     
-    init(_ url: String) {
-        self.filmURL.onNext(url)
-        
-        filmURL.subscribe(onNext: { url in
-            if url.isEmpty { return }
-            APIService.shared.get(url).subscribe(onNext: { (film: Film) in
-                self.film.onNext(film)
-            }, onError : { error in
-                debugPrint(error)
-            }).disposed(by: self.disposeBag)
-        }).disposed(by: disposeBag)
-    }
-
+    let props = PublishSubject<FilmViewProps>()
+    let url: String
     
-    var isFilmSet: Observable<Bool> {
-        return film.asObservable().map({ $0.title != "" })
+    init(url: String) {
+        self.url = url
+    }
+    
+    func fetchMovie() {
+        APIService.shared.get(url)
+            .map { FilmViewProps(from: $0) }
+            .bind(to: props)
+            .disposed(by: self.disposeBag)
     }
 }

@@ -15,7 +15,13 @@ public struct HomeShortcut {
     var icon: UIImage?
 }
 
-final class HomeViewModel {
+protocol HomeViewModelProtocol {
+    var shortcuts: BehaviorRelay<[HomeShortcut]> { get }
+    
+    func getItem(by indexPath: IndexPath) -> HomeShortcut
+}
+
+final class HomeViewModel: HomeViewModelProtocol {
     
     let shortcuts = BehaviorRelay<[HomeShortcut]>(value: [
         HomeShortcut(title: "Films", url: "https://swapi.dev/api/films/", icon: UIImage(systemName: "play.rectangle.fill")),
@@ -26,7 +32,7 @@ final class HomeViewModel {
         HomeShortcut(title: "Vehicles", url: "https://swapi.dev/api/vehicles/", icon: UIImage(systemName: "car.fill"))
     ])
     
-    func getItemByIndexPath(indexPath: IndexPath) -> HomeShortcut {
-        return shortcuts.value[indexPath.row]
+    func getItem(by indexPath: IndexPath) -> HomeShortcut {
+        shortcuts.value[indexPath.row]
     }
 }

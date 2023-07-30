@@ -90,7 +90,7 @@ class ListViewController<T: Model>: UIViewController {
                 
                 switch(type) {
                 case "films":
-                    let viewModel = FilmViewModel(link)
+                    let viewModel = FilmViewModel(url: link)
                     let controller = FilmViewController(viewModel: viewModel)
                     self.navigationController?.pushViewController(controller, animated: true)
                 default:

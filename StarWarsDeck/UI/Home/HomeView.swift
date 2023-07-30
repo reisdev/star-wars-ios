@@ -15,7 +15,7 @@ final class HomeView: UIView {
     private struct Metrics {
         static let logoTopMargin = 50
         static let contentSpacing = 16
-        static let imageSize = 150
+        static let imageHeight = 150
         static let buttonSize = 105
         static let collectionViewInset = 64
     }
@@ -52,9 +52,9 @@ extension HomeView: ViewCode {
     
     internal func setupConstraints() {
         logoImageView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top).inset(Metrics.logoTopMargin)
-            make.leading.trailing.equalToSuperview().inset(Metrics.contentSpacing)
-            make.size.equalTo(Metrics.imageSize)
+            make.top.equalTo(self.snp.topMargin)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(Metrics.imageHeight)
         }
         
         shortcutsCollectionView.snp.makeConstraints { make in

@@ -11,26 +11,32 @@ import RxCocoa
 
 final class HomeViewController: UIViewController {
     
-    private unowned var customView: HomeView {
-        return view as! HomeView
-    }
+    private lazy var homeView: HomeView = {
+        let view = HomeView()
+        return view
+    }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     private let disposeBag = DisposeBag()
-    var viewModel: HomeViewModel = HomeViewModel()
+    let viewModel: HomeViewModelProtocol
     
     // MARK: Init
-    convenience init(viewModel: HomeViewModel) {
-        self.init()
+    init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: View Lyfecycle
     override func loadView() {
-        self.view = HomeView()
+        self.view = homeView
     }
     
     override func viewDidLoad() {
@@ -40,27 +46,20 @@ final class HomeViewController: UIViewController {
     
     // MARK: Bindings
     private func bindObservables() {
-        viewModel.shortcuts.bind(to: customView.shortcutsCollectionView.rx.items) { (collectionView, index, data) in
+        viewModel.shortcuts.bind(to: homeView.shortcutsCollectionView.rx.items) { (collectionView, index, data) in
             let indexPath = IndexPath(row: index, section: 0)
-            guard let cell: HomeShortcutViewCell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: String(describing: HomeShortcutViewCell.self),
-                    for: indexPath
-            ) as? HomeShortcutViewCell
-            else {
-                let cell = HomeShortcutViewCell()
-                cell.setup(with: data)
-                return cell
-            }
+            let cell: HomeShortcutViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeShortcutViewCell.self), for: indexPath)
+            
             cell.setup(with: data)
             return cell
         }.disposed(by: disposeBag)
         
-        customView.shortcutsCollectionView.rx.itemSelected
+        homeView.shortcutsCollectionView.rx.itemSelected
             .asControlEvent()
             .subscribe(onNext: { [weak self] (indexPath) in
                 guard let self = self else { return }
-                let cell = self.customView.shortcutsCollectionView.cellForItem(at: indexPath)
-                let item = self.viewModel.getItemByIndexPath(indexPath: indexPath)
+                let cell = self.homeView.shortcutsCollectionView.cellForItem(at: indexPath)
+                let item = self.viewModel.getItem(by: indexPath)
                 
                 cell?.isUserInteractionEnabled = false
                 APIService.shared.get(item.url).subscribe(onNext: { (response: Response) in

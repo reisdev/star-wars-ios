@@ -20,7 +20,7 @@ struct Film: Model {
     var vehicles: [String];
     var characters: [String];
     var planets: [String];
-    var url : String;
+    var url: String;
     var created: String;
     var edited: String;
     var releaseYear: String {
@@ -49,24 +49,5 @@ struct Film: Model {
     
     func getCellInfo() -> String {
         return title
-    }
-}
-
-extension Film {
-    init(){
-        title = ""
-        episodeId = 0
-        openingCrawl = ""
-        director = ""
-        producer = ""
-        releaseDate = ""
-        species = []
-        starships = []
-        vehicles = []
-        characters = []
-        planets = []
-        url = ""
-        created = ""
-        edited = ""
     }
 }
