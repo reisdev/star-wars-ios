@@ -22,18 +22,49 @@ final class FilmView: UIView {
     private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine,secondShortcutLine])
     
     // MARK: Subviews
-    lazy var backButton = makeGenericButton(image: UIImage(systemName: "chevron.left"),style: .secondary)
+    lazy var backButton: Button = {
+        let button = Button()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setup(with: .init(style: .icon(.chevronLeft)))
+        return button
+    }()
+    
     lazy var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
     lazy var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
     lazy var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
     lazy var directorName = makeGenericLabel(fontSize: 18.0);
     lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
     lazy var producerName = makeGenericLabel(fontSize: 18.0);
-    lazy var crawlingButton = makeGenericButton(title: "Opening Crawling",image: UIImage(systemName: "play.fill"), rounded: true);
-    lazy var charactersButton = makeGenericButton(title: "Characters", image: UIImage(systemName: "person.fill"), rounded: true);
-    lazy var vehiclesButton = makeGenericButton(title: "Vehicles", image: UIImage(systemName: "airplane"), rounded: true)
-    lazy var planetsButton = makeGenericButton(title: "Planets", image: UIImage(systemName: "globe"), rounded: true);
-    lazy var speciesButton = makeGenericButton(title: "Species", image: UIImage(named: "dna"), rounded: true);
+    lazy var crawlingButton: Button = {
+        let button = Button(props: .init(style: .primary, title: "Opening Crawling", image: .play, rounded: true))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var charactersButton: Button = {
+        let button = Button(props: .init(style: .primary, title: "Characters", image: .person, rounded: true))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var vehiclesButton: Button = {
+        let button = Button(props: .init(style: .primary, title: "Vehicles", image: .airplane, rounded: true))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
+    lazy var planetsButton: Button = {
+        let button = Button(props: .init(style: .primary, title: "Planets", image: .globe, rounded: true))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var speciesButton: Button = {
+        let button = Button(props: .init(style: .primary, title: "Species", image: .dna, rounded: true))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     init(){
         super.init(frame: .zero)
@@ -72,8 +103,8 @@ extension FilmView: ViewCode {
         }
         
         verticalStack.snp.makeConstraints { make in
-            make.left.equalTo(contentView.snp.left).inset(20.0)
-            make.right.equalTo(contentView.snp.right).inset(20.0)
+            make.top.equalToSuperview().inset(24.0)
+            make.left.right.equalToSuperview().inset(24.0)
         }
         
         directorStack.snp.makeConstraints { make in

@@ -60,7 +60,7 @@ final class HomeShortcutViewCell: UICollectionViewCell {
     }
     
     public func setup(with data: HomeShortcut) {
-        iconImageView.image = data.icon
+        iconImageView.image = data.iconImage
         titleLabel.text = data.title
     }
 }

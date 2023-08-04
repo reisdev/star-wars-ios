@@ -9,28 +9,43 @@ import Foundation
 import UIKit
 import RxCocoa
 
-public struct HomeShortcut {
+public struct HomeShortcut: Decodable {
     var title: String
     var url: String
-    var icon: UIImage?
+    var iconName: String
+}
+
+extension HomeShortcut {
+    var iconImage: UIImage? {
+        UIImage(named: iconName) ?? UIImage(systemName: iconName)
+    }
 }
 
 protocol HomeViewModelProtocol {
     var shortcuts: BehaviorRelay<[HomeShortcut]> { get }
     
+    func fetchShortcuts()
     func getItem(by indexPath: IndexPath) -> HomeShortcut
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     
-    let shortcuts = BehaviorRelay<[HomeShortcut]>(value: [
-        HomeShortcut(title: "Films", url: "https://swapi.dev/api/films/", icon: UIImage(systemName: "play.rectangle.fill")),
-        HomeShortcut(title: "People", url: "https://swapi.dev/api/people/", icon: UIImage(systemName: "person.fill")),
-        HomeShortcut(title: "Planets", url: "https://swapi.dev/api/planets/", icon: UIImage(systemName: "globe")),
-        HomeShortcut(title: "Species", url: "https://swapi.dev/api/species/", icon: UIImage(named: "dna")),
-        HomeShortcut(title: "Starships", url: "https://swapi.dev/api/starships/", icon: UIImage(systemName: "airplane")),
-        HomeShortcut(title: "Vehicles", url: "https://swapi.dev/api/vehicles/", icon: UIImage(systemName: "car.fill"))
-    ])
+    let shortcuts = BehaviorRelay<[HomeShortcut]>(value: [])
+    
+    private let service: JSONServiceProtocol
+    
+    init(service: JSONServiceProtocol) {
+        self.service = service
+    }
+    
+    func fetchShortcuts() {
+        do {
+            let response: HomeShortcutResponse = try service.fetch()
+            shortcuts.accept(response.shortcuts)
+        } catch(let error) {
+            print(error)
+        }
+    }
     
     func getItem(by indexPath: IndexPath) -> HomeShortcut {
         shortcuts.value[indexPath.row]

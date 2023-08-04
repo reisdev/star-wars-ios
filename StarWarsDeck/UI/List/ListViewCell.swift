@@ -11,7 +11,7 @@ import UIKit
 class ListViewCell: UITableViewCell {
     
     private let chevronImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "chevron.right"))
+        let imageView = UIImageView(image: .chevronRight)
         imageView.backgroundColor = .darkGray
         imageView.tintColor = .systemYellow
         return imageView

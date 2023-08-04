@@ -19,12 +19,12 @@
 		3E125EAE269C77E700E9A8D1 /* UIView+ViewBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */; };
 		3EAA1223270157B300582317 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA1222270157B300582317 /* ViewCode.swift */; };
 		54C2F155F89B52E3BD92C0B6 /* Pods_StarWarsDeckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */; };
-		C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF609263452D800C79A94 /* PeopleModel.swift */; };
-		C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF611263452E900C79A94 /* VehicleModel.swift */; };
-		C54FF6172634530000C79A94 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6162634530000C79A94 /* FilmModel.swift */; };
-		C54FF61C2634531600C79A94 /* StarshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF61B2634531600C79A94 /* StarshipModel.swift */; };
-		C54FF624263453A000C79A94 /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF623263453A000C79A94 /* PlanetModel.swift */; };
-		C54FF629263453BC00C79A94 /* SpecieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF628263453BC00C79A94 /* SpecieModel.swift */; };
+		C54FF60A263452D800C79A94 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF609263452D800C79A94 /* People.swift */; };
+		C54FF612263452E900C79A94 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF611263452E900C79A94 /* Vehicle.swift */; };
+		C54FF6172634530000C79A94 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6162634530000C79A94 /* Film.swift */; };
+		C54FF61C2634531600C79A94 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF61B2634531600C79A94 /* Starship.swift */; };
+		C54FF624263453A000C79A94 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF623263453A000C79A94 /* Planet.swift */; };
+		C54FF629263453BC00C79A94 /* Specie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF628263453BC00C79A94 /* Specie.swift */; };
 		C54FF62F2634549C00C79A94 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C54FF62E2634549C00C79A94 /* Podfile */; };
 		C54FF6372634561400C79A94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6362634561400C79A94 /* APIService.swift */; };
 		C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF63B263456E300C79A94 /* FilmViewController.swift */; };
@@ -46,6 +46,12 @@
 		C5D6BE712A7335D7003BDF1E /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE702A7335D7003BDF1E /* ViewControllerFactory.swift */; };
 		C5D6BE732A733AB3003BDF1E /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE722A733AB3003BDF1E /* UICollectionView.swift */; };
 		C5D6BE762A734577003BDF1E /* FilmViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE752A734577003BDF1E /* FilmViewProps.swift */; };
+		C5D6BE792A7C672D003BDF1E /* home_shortcuts.json in Resources */ = {isa = PBXBuildFile; fileRef = C5D6BE782A7C672D003BDF1E /* home_shortcuts.json */; };
+		C5D6BE7B2A7C6B2B003BDF1E /* ShortcutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE7A2A7C6B2B003BDF1E /* ShortcutService.swift */; };
+		C5D6BE7E2A7C711B003BDF1E /* HomeShortcutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE7D2A7C711B003BDF1E /* HomeShortcutResponse.swift */; };
+		C5D6BE8A2A7C7AEA003BDF1E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE892A7C7AEA003BDF1E /* Button.swift */; };
+		C5D6BE8C2A7C8102003BDF1E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */; };
+		C5D6BE8F2A7C8AF1003BDF1E /* ButtonProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE8E2A7C8AF1003BDF1E /* ButtonProps.swift */; };
 		CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */; };
 		CED7797427760E1E003002BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797327760E1E003002BF /* HomeView.swift */; };
 		CED7797927761D8B003002BF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797827761D8B003002BF /* HomeViewModel.swift */; };
@@ -91,12 +97,12 @@
 		AD1A6D90F39CE5E5F51D3214 /* Pods_StarWarsDeckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B365B18451562B23477B1795 /* Pods-StarWarsDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsDeck.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsDeck/Pods-StarWarsDeck.debug.xcconfig"; sourceTree = "<group>"; };
 		B7ADD8A91651068474394467 /* Pods_StarWarsDeckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsDeckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C54FF609263452D800C79A94 /* PeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleModel.swift; sourceTree = "<group>"; };
-		C54FF611263452E900C79A94 /* VehicleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
-		C54FF6162634530000C79A94 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
-		C54FF61B2634531600C79A94 /* StarshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipModel.swift; sourceTree = "<group>"; };
-		C54FF623263453A000C79A94 /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
-		C54FF628263453BC00C79A94 /* SpecieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieModel.swift; sourceTree = "<group>"; };
+		C54FF609263452D800C79A94 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		C54FF611263452E900C79A94 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		C54FF6162634530000C79A94 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		C54FF61B2634531600C79A94 /* Starship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
+		C54FF623263453A000C79A94 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		C54FF628263453BC00C79A94 /* Specie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specie.swift; sourceTree = "<group>"; };
 		C54FF62E2634549C00C79A94 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C54FF6362634561400C79A94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C54FF63B263456E300C79A94 /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +129,12 @@
 		C5D6BE702A7335D7003BDF1E /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		C5D6BE722A733AB3003BDF1E /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		C5D6BE752A734577003BDF1E /* FilmViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewProps.swift; sourceTree = "<group>"; };
+		C5D6BE782A7C672D003BDF1E /* home_shortcuts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = home_shortcuts.json; sourceTree = "<group>"; };
+		C5D6BE7A2A7C6B2B003BDF1E /* ShortcutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutService.swift; sourceTree = "<group>"; };
+		C5D6BE7D2A7C711B003BDF1E /* HomeShortcutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShortcutResponse.swift; sourceTree = "<group>"; };
+		C5D6BE892A7C7AEA003BDF1E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C5D6BE8E2A7C8AF1003BDF1E /* ButtonProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonProps.swift; sourceTree = "<group>"; };
 		CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		CED7797327760E1E003002BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CED7797827761D8B003002BF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -216,6 +228,7 @@
 				3E125EAD269C77E700E9A8D1 /* UIView+ViewBuilders.swift */,
 				CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */,
 				C5D6BE722A733AB3003BDF1E /* UICollectionView.swift */,
+				C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,14 +256,13 @@
 		C54FF62D263453C200C79A94 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C54FF6162634530000C79A94 /* FilmModel.swift */,
-				C54FF609263452D800C79A94 /* PeopleModel.swift */,
-				C54FF623263453A000C79A94 /* PlanetModel.swift */,
-				C54FF628263453BC00C79A94 /* SpecieModel.swift */,
-				C54FF61B2634531600C79A94 /* StarshipModel.swift */,
-				C54FF611263452E900C79A94 /* VehicleModel.swift */,
+				C54FF6162634530000C79A94 /* Film.swift */,
+				C54FF609263452D800C79A94 /* People.swift */,
+				C54FF623263453A000C79A94 /* Planet.swift */,
+				C54FF628263453BC00C79A94 /* Specie.swift */,
+				C54FF61B2634531600C79A94 /* Starship.swift */,
+				C54FF611263452E900C79A94 /* Vehicle.swift */,
 				3E125E9E269883C300E9A8D1 /* Model.swift */,
-				CED779822776623A003002BF /* Response.swift */,
 				CEDED6B827A8B44C0056497D /* Result.swift */,
 			);
 			path = Models;
@@ -283,13 +295,12 @@
 		C572EF3826344EFF00CB6086 /* StarWarsDeck */ = {
 			isa = PBXGroup;
 			children = (
-				CED7797127760B5F003002BF /* UI */,
-				CED7796F27760A48003002BF /* Domain */,
-				3EAA12212701570100582317 /* Extensions */,
 				C54FF608263450F700C79A94 /* Core */,
-				C572EF4226344F0100CB6086 /* Assets.xcassets */,
-				C572EF4726344F0100CB6086 /* Info.plist */,
-				C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */,
+				CED7796F27760A48003002BF /* Domain */,
+				CED7797027760A53003002BF /* Services */,
+				3EAA12212701570100582317 /* Extensions */,
+				C5D6BE772A7C6684003BDF1E /* Resources */,
+				CED7797127760B5F003002BF /* UI */,
 			);
 			path = StarWarsDeck;
 			sourceTree = "<group>";
@@ -328,10 +339,47 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C5D6BE772A7C6684003BDF1E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C572EF4426344F0100CB6086 /* LaunchScreen.storyboard */,
+				C572EF4726344F0100CB6086 /* Info.plist */,
+				C572EF4226344F0100CB6086 /* Assets.xcassets */,
+				C5D6BE782A7C672D003BDF1E /* home_shortcuts.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C5D6BE7C2A7C7104003BDF1E /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				CED779822776623A003002BF /* Response.swift */,
+				C5D6BE7D2A7C711B003BDF1E /* HomeShortcutResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		C5D6BE882A7C7AD0003BDF1E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C5D6BE8D2A7C8AE4003BDF1E /* Button */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C5D6BE8D2A7C8AE4003BDF1E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C5D6BE8E2A7C8AF1003BDF1E /* ButtonProps.swift */,
+				C5D6BE892A7C7AEA003BDF1E /* Button.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		CED7796F27760A48003002BF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CED7797027760A53003002BF /* Services */,
+				C5D6BE7C2A7C7104003BDF1E /* Responses */,
 				C54FF62D263453C200C79A94 /* Models */,
 			);
 			path = Domain;
@@ -341,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				C54FF6362634561400C79A94 /* APIService.swift */,
+				C5D6BE7A2A7C6B2B003BDF1E /* ShortcutService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,6 +397,7 @@
 		CED7797127760B5F003002BF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C5D6BE882A7C7AD0003BDF1E /* Components */,
 				CED7797227760E0C003002BF /* Home */,
 				3E125EA42698D18100E9A8D1 /* Film */,
 				3E125E9D2697E0E300E9A8D1 /* List */,
@@ -391,6 +441,8 @@
 			dependencies = (
 			);
 			name = StarWarsDeck;
+			packageProductDependencies = (
+			);
 			productName = StarWarsDeck;
 			productReference = C572EF3626344EFF00CB6086 /* StarWarsDeck.app */;
 			productType = "com.apple.product-type.application";
@@ -464,6 +516,8 @@
 				Base,
 			);
 			mainGroup = C572EF2D26344EFF00CB6086;
+			packageReferences = (
+			);
 			productRefGroup = C572EF3726344EFF00CB6086 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -484,6 +538,7 @@
 				C572EF4626344F0100CB6086 /* LaunchScreen.storyboard in Resources */,
 				C572EF4326344F0100CB6086 /* Assets.xcassets in Resources */,
 				C54FF62F2634549C00C79A94 /* Podfile in Resources */,
+				C5D6BE792A7C672D003BDF1E /* home_shortcuts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D6BE8A2A7C7AEA003BDF1E /* Button.swift in Sources */,
 				3E125E9F269883C300E9A8D1 /* Model.swift in Sources */,
 				3E125EA9269B974000E9A8D1 /* OpeningCrawlingViewModel.swift in Sources */,
 				3EAA1223270157B300582317 /* ViewCode.swift in Sources */,
@@ -601,10 +657,11 @@
 				C54FF65326345EEF00C79A94 /* VehicleViewController.swift in Sources */,
 				C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */,
 				C54FF6C82635EFF700C79A94 /* HomeViewController.swift in Sources */,
+				C5D6BE7E2A7C711B003BDF1E /* HomeShortcutResponse.swift in Sources */,
 				3E125EA6269B915D00E9A8D1 /* OpeningCrawlingView.swift in Sources */,
 				C54FF65A26345F0300C79A94 /* StarshipViewController.swift in Sources */,
 				C5D6BE732A733AB3003BDF1E /* UICollectionView.swift in Sources */,
-				C54FF624263453A000C79A94 /* PlanetModel.swift in Sources */,
+				C54FF624263453A000C79A94 /* Planet.swift in Sources */,
 				3E125EAB269BC3D300E9A8D1 /* FilmView.swift in Sources */,
 				CED7797427760E1E003002BF /* HomeView.swift in Sources */,
 				CED7797E277641A6003002BF /* HomeShortcutViewCell.swift in Sources */,
@@ -612,24 +669,27 @@
 				CED7797927761D8B003002BF /* HomeViewModel.swift in Sources */,
 				C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */,
 				C5D6BE762A734577003BDF1E /* FilmViewProps.swift in Sources */,
-				C54FF61C2634531600C79A94 /* StarshipModel.swift in Sources */,
+				C54FF61C2634531600C79A94 /* Starship.swift in Sources */,
 				3E125EA32698D17700E9A8D1 /* FilmViewModel.swift in Sources */,
 				3E125EA126988AFB00E9A8D1 /* ListViewModel.swift in Sources */,
-				C54FF6172634530000C79A94 /* FilmModel.swift in Sources */,
+				C54FF6172634530000C79A94 /* Film.swift in Sources */,
 				C5D6BE712A7335D7003BDF1E /* ViewControllerFactory.swift in Sources */,
 				C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */,
+				C5D6BE8C2A7C8102003BDF1E /* UIImage.swift in Sources */,
 				3E125EAE269C77E700E9A8D1 /* UIView+ViewBuilders.swift in Sources */,
 				CEDED6B127A8B0400056497D /* ListViewCell.swift in Sources */,
-				C54FF629263453BC00C79A94 /* SpecieModel.swift in Sources */,
-				C54FF612263452E900C79A94 /* VehicleModel.swift in Sources */,
+				C54FF629263453BC00C79A94 /* Specie.swift in Sources */,
+				C54FF612263452E900C79A94 /* Vehicle.swift in Sources */,
 				CED779832776623A003002BF /* Response.swift in Sources */,
 				C54FF6372634561400C79A94 /* APIService.swift in Sources */,
 				C54FF64C26345ED200C79A94 /* PlanetViewController.swift in Sources */,
+				C5D6BE7B2A7C6B2B003BDF1E /* ShortcutService.swift in Sources */,
 				C572EF3A26344EFF00CB6086 /* AppDelegate.swift in Sources */,
 				CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */,
 				C54FF6642634D7BF00C79A94 /* SpecieViewController.swift in Sources */,
-				C54FF60A263452D800C79A94 /* PeopleModel.swift in Sources */,
+				C54FF60A263452D800C79A94 /* People.swift in Sources */,
 				3E125E9B2697E0CA00E9A8D1 /* ListViewController.swift in Sources */,
+				C5D6BE8F2A7C8AF1003BDF1E /* ButtonProps.swift in Sources */,
 				C572EF3C26344EFF00CB6086 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,7 +862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VK9JADUS66;
-				INFOPLIST_FILE = StarWarsDeck/Info.plist;
+				INFOPLIST_FILE = StarWarsDeck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -822,7 +882,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VK9JADUS66;
-				INFOPLIST_FILE = StarWarsDeck/Info.plist;
+				INFOPLIST_FILE = StarWarsDeck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

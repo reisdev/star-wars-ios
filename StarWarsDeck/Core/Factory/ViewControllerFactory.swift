@@ -18,7 +18,8 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
     }()
     
     func makeHomeViewController() -> HomeViewController {
-        let homeViewModel = HomeViewModel()
+        let service = JSONService(fileName: "home_shortcuts")
+        let homeViewModel = HomeViewModel(service: service)
         return HomeViewController(viewModel: homeViewModel)
     }
 }
