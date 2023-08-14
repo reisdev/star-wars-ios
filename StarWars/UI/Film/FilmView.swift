@@ -10,6 +10,13 @@ import RxSwift
 import RxCocoa
 import UIKit
 
+protocol FilmViewDelegate: AnyObject {
+    func didTapCharactersButton()
+    func didTapSpeciesButton()
+    func didTapVehiclesButton()
+    func didTapPlanetsButton()
+}
+
 final class FilmView: UIView {
     
     // MARK: Layout views
@@ -45,12 +52,18 @@ final class FilmView: UIView {
     lazy var charactersButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Characters", image: .person, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+            self?.delegate?.didTapCharactersButton()
+        }, for: .touchUpInside)
         return button
     }()
     
     lazy var vehiclesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Vehicles", image: .airplane, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+            self?.delegate?.didTapVehiclesButton()
+        }, for: .touchUpInside)
         return button
     }()
     
@@ -58,14 +71,22 @@ final class FilmView: UIView {
     lazy var planetsButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Planets", image: .globe, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+            self?.delegate?.didTapPlanetsButton()
+        }, for: .touchUpInside)
         return button
     }()
     
     lazy var speciesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Species", image: .dna, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+            self?.delegate?.didTapSpeciesButton()
+        }, for: .touchUpInside)
         return button
     }()
+    
+    weak var delegate: FilmViewDelegate?
     
     init(){
         super.init(frame: .zero)

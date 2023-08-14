@@ -12,6 +12,12 @@ struct FilmViewProps {
     let year: String
     let director: String
     let producer: String
+    
+    let species: [URL]
+    let starships: [URL]
+    let vehicles: [URL]
+    let characters: [URL]
+    let planets: [URL]
 }
 
 extension FilmViewProps {
@@ -20,5 +26,10 @@ extension FilmViewProps {
         self.year = film.releaseYear
         self.director = film.director
         self.producer = film.producer
+        self.characters = film.characters
+        self.species = film.species
+        self.vehicles = film.vehicles
+        self.planets = film.planets
+        self.starships = film.starships
     }
 }

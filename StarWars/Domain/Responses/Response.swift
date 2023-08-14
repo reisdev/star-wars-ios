@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Response: Codable {
+struct Response<T: Codable>: Codable {
     var count: Int
     var next: String?
     var previous: String?
-    var results: [Result]
+    var results: [T]
 }

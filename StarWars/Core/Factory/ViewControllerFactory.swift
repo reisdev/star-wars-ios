@@ -9,6 +9,7 @@ import Foundation
 
 protocol ViewControllerFactoryProtocol {
     func makeHomeViewController() -> HomeViewController
+    func makeListViewController(for urls: [URL], with title: String) -> ListViewController
 }
 
 final class ViewControllerFactory: ViewControllerFactoryProtocol {
@@ -21,5 +22,11 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
         let service = JSONService(fileName: "home_shortcuts")
         let homeViewModel = HomeViewModel(service: service)
         return HomeViewController(viewModel: homeViewModel)
+    }
+    
+    func makeListViewController(for urls: [URL], with title: String) -> ListViewController {
+        let service = StarWarsService()
+        let viewModel = ListViewModel(service: service, items: urls, title: title)
+        return ListViewController(viewModel: viewModel)
     }
 }

@@ -10,23 +10,30 @@ import RxSwift
 import RxCocoa
 
 class ListViewModel {
-    public let urls = BehaviorRelay<[String]>(value: [])
-    public let title = BehaviorRelay<String>(value: "List")
-    private let disposeBag = DisposeBag()
+    private let service: StarWarsServiceProtocol
     
-    init(_ items: [String],_ title: String){
-        urls.accept(items)
+    public let urls = BehaviorRelay<[URL]>(value: [])
+    public let title = BehaviorRelay<String>(value: "List")
+    
+    init(service: StarWarsServiceProtocol, items: [URL], title: String){
+        self.service = service
+        self.title.accept(title)
+        self.urls.accept(items)
     }
     
-    func getItemByIndex(index: Int) -> String {
-        return urls.value[index]
+    func getItemByIndex(index: Int) -> URL {
+        urls.value[index]
     }
     
     func search(text: String) {
-        APIService.shared.search(resource: title.value.lowercased(), search: text)
-            .subscribe { [weak self] (data: Response) in
-                guard let self = self else { return }
-                self.urls.accept(data.results.map { $0.url })
-        }.disposed(by: disposeBag)
+        Task {
+            do {
+                let response: Response<Result> = try await service.search(.films, search: title.value.lowercased())
+                
+                urls.accept(response.results.map { $0.url })
+            } catch(let error) {
+                print(error)
+            }
+        }
     }
 }

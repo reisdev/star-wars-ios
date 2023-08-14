@@ -7,28 +7,35 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol FilmViewModelProtocol {
-    var props: PublishSubject<FilmViewProps> { get }
+    var props: BehaviorRelay<FilmViewProps?> { get }
     
     func fetchMovie()
 }
 
 final class FilmViewModel: FilmViewModelProtocol {
     
-    let disposeBag = DisposeBag()
+    private let service: StarWarsServiceProtocol
+    private let id: String
     
-    let props = PublishSubject<FilmViewProps>()
-    let url: String
-    
-    init(url: String) {
-        self.url = url
+    let props = BehaviorRelay<FilmViewProps?>(value: nil)
+
+    init(service: StarWarsServiceProtocol, id: String) {
+        self.service = service
+        self.id = id
     }
     
     func fetchMovie() {
-        APIService.shared.get(url)
-            .map { FilmViewProps(from: $0) }
-            .bind(to: props)
-            .disposed(by: self.disposeBag)
+        Task {
+            do {
+                let film: Film = try await service.get(.films, id: id)
+                
+                props.accept(FilmViewProps(from: film))
+            } catch(let error) {
+                print(error)
+            }
+        }
     }
 }

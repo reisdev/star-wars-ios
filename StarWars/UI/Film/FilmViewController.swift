@@ -12,7 +12,9 @@ import RxCocoa
 class FilmViewController: UIViewController {
     
     private lazy var filmView: FilmView = {
-        return FilmView()
+        let view = FilmView()
+        view.delegate = self
+        return view
     }()
 
     private let disposeBag = DisposeBag()
@@ -46,7 +48,7 @@ class FilmViewController: UIViewController {
     
     private func setupBindings(){
         viewModel.props.subscribe(onNext: { [weak self] props in
-            guard let self else { return }
+            guard let self, let props else { return }
             self.filmView.setup(with: props)
         }).disposed(by: self.disposeBag)
     }
@@ -67,20 +69,6 @@ class FilmViewController: UIViewController {
                     
                     self.navigationController?.showDetailViewController(controller,sender: nil)
                 } catch(let error){
-                    debugPrint(error)
-                }
-            }).disposed(by: disposeBag)
-        
-        filmView.charactersButton.rx.tap
-            .asDriver()
-            .drive(onNext: {
-                do {
-                    let controller = ListViewController<People>()
-                    controller.viewModel.urls.accept(try self.viewModel.props.value().characters)
-                    controller.viewModel.title.accept("Characters")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
                     debugPrint(error)
                 }
             }).disposed(by: disposeBag)
@@ -133,3 +121,28 @@ class FilmViewController: UIViewController {
     }
 }
 
+extension FilmViewController: FilmViewDelegate {
+    func didTapCharactersButton() {
+        guard let urls = viewModel.props.value?.characters else {
+            return
+        }
+        
+        let controller = ViewControllerFactory.shared.makeListViewController(for: urls, with: "Characters")
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func didTapSpeciesButton() {
+        
+    }
+    
+    func didTapVehiclesButton() {
+        
+    }
+    
+    func didTapPlanetsButton() {
+        
+    }
+    
+    
+}

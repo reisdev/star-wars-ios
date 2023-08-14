@@ -23,7 +23,7 @@
 		C54FF61C2634531600C79A94 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF61B2634531600C79A94 /* Starship.swift */; };
 		C54FF624263453A000C79A94 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF623263453A000C79A94 /* Planet.swift */; };
 		C54FF629263453BC00C79A94 /* Specie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF628263453BC00C79A94 /* Specie.swift */; };
-		C54FF6372634561400C79A94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6362634561400C79A94 /* APIService.swift */; };
+		C54FF6372634561400C79A94 /* StarWarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF6362634561400C79A94 /* StarWarsService.swift */; };
 		C54FF63D263456E300C79A94 /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF63B263456E300C79A94 /* FilmViewController.swift */; };
 		C54FF644263457F700C79A94 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF642263457F700C79A94 /* PeopleViewController.swift */; };
 		C54FF64C26345ED200C79A94 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54FF64A26345ED200C79A94 /* PlanetViewController.swift */; };
@@ -40,7 +40,6 @@
 		C572EF5C26344F0200CB6086 /* StarWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572EF5B26344F0200CB6086 /* StarWarsUITests.swift */; };
 		C59BECCC2A7D009B00B3A554 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECCB2A7D009B00B3A554 /* RxCocoa */; };
 		C59BECCE2A7D009B00B3A554 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECCD2A7D009B00B3A554 /* RxSwift */; };
-		C59BECD12A7D00A700B3A554 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECD02A7D00A700B3A554 /* Alamofire */; };
 		C59BECD42A7D00BF00B3A554 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECD32A7D00BF00B3A554 /* SnapKit */; };
 		C5D6BE712A7335D7003BDF1E /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE702A7335D7003BDF1E /* ViewControllerFactory.swift */; };
 		C5D6BE732A733AB3003BDF1E /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE722A733AB3003BDF1E /* UICollectionView.swift */; };
@@ -51,6 +50,10 @@
 		C5D6BE8A2A7C7AEA003BDF1E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE892A7C7AEA003BDF1E /* Button.swift */; };
 		C5D6BE8C2A7C8102003BDF1E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */; };
 		C5D6BE8F2A7C8AF1003BDF1E /* ButtonProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6BE8E2A7C8AF1003BDF1E /* ButtonProps.swift */; };
+		C5E5DC842A85A1BA0008D461 /* StarWarsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E5DC832A85A1BA0008D461 /* StarWarsRequest.swift */; };
+		C5E5DC862A85AA300008D461 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E5DC852A85AA300008D461 /* RequestError.swift */; };
+		C5E5DC882A85B0A30008D461 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E5DC872A85B0A30008D461 /* URLExtension.swift */; };
+		C5E5DC8A2A85B24D0008D461 /* StarWarsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E5DC892A85B24D0008D461 /* StarWarsServiceTests.swift */; };
 		CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */; };
 		CED7797427760E1E003002BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797327760E1E003002BF /* HomeView.swift */; };
 		CED7797927761D8B003002BF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7797827761D8B003002BF /* HomeViewModel.swift */; };
@@ -94,7 +97,7 @@
 		C54FF61B2634531600C79A94 /* Starship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		C54FF623263453A000C79A94 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		C54FF628263453BC00C79A94 /* Specie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specie.swift; sourceTree = "<group>"; };
-		C54FF6362634561400C79A94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		C54FF6362634561400C79A94 /* StarWarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsService.swift; sourceTree = "<group>"; };
 		C54FF63B263456E300C79A94 /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
 		C54FF642263457F700C79A94 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		C54FF64A26345ED200C79A94 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +127,10 @@
 		C5D6BE892A7C7AEA003BDF1E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C5D6BE8E2A7C8AF1003BDF1E /* ButtonProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonProps.swift; sourceTree = "<group>"; };
+		C5E5DC832A85A1BA0008D461 /* StarWarsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsRequest.swift; sourceTree = "<group>"; };
+		C5E5DC852A85AA300008D461 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		C5E5DC872A85B0A30008D461 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		C5E5DC892A85B24D0008D461 /* StarWarsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsServiceTests.swift; sourceTree = "<group>"; };
 		CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		CED7797327760E1E003002BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CED7797827761D8B003002BF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -138,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C59BECD12A7D00A700B3A554 /* Alamofire in Frameworks */,
 				C59BECD42A7D00BF00B3A554 /* SnapKit in Frameworks */,
 				C59BECCE2A7D009B00B3A554 /* RxSwift in Frameworks */,
 				C59BECCC2A7D009B00B3A554 /* RxCocoa in Frameworks */,
@@ -201,6 +207,7 @@
 				CE46A1B627C7BD5A001FB7B5 /* UINavigationBar.swift */,
 				C5D6BE722A733AB3003BDF1E /* UICollectionView.swift */,
 				C5D6BE8B2A7C8102003BDF1E /* UIImage.swift */,
+				C5E5DC872A85B0A30008D461 /* URLExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 				C54FF611263452E900C79A94 /* Vehicle.swift */,
 				3E125E9E269883C300E9A8D1 /* Model.swift */,
 				CEDED6B827A8B44C0056497D /* Result.swift */,
+				C5E5DC852A85AA300008D461 /* RequestError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +276,7 @@
 			children = (
 				C572EF5226344F0200CB6086 /* Info.plist */,
 				C572EF5026344F0200CB6086 /* StarWarsTests.swift */,
+				C5E5DC892A85B24D0008D461 /* StarWarsServiceTests.swift */,
 			);
 			path = StarWarsTests;
 			sourceTree = "<group>";
@@ -334,9 +343,18 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		C5E5DC822A85A11C0008D461 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				C5E5DC832A85A1BA0008D461 /* StarWarsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		CED7796F27760A48003002BF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C5E5DC822A85A11C0008D461 /* Requests */,
 				C5D6BE7C2A7C7104003BDF1E /* Responses */,
 				C54FF62D263453C200C79A94 /* Models */,
 			);
@@ -346,7 +364,7 @@
 		CED7797027760A53003002BF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C54FF6362634561400C79A94 /* APIService.swift */,
+				C54FF6362634561400C79A94 /* StarWarsService.swift */,
 				C5D6BE7A2A7C6B2B003BDF1E /* ShortcutService.swift */,
 			);
 			path = Services;
@@ -400,7 +418,6 @@
 			packageProductDependencies = (
 				C59BECCB2A7D009B00B3A554 /* RxCocoa */,
 				C59BECCD2A7D009B00B3A554 /* RxSwift */,
-				C59BECD02A7D00A700B3A554 /* Alamofire */,
 				C59BECD32A7D00BF00B3A554 /* SnapKit */,
 			);
 			productName = StarWarsDeck;
@@ -477,9 +494,7 @@
 			mainGroup = C572EF2D26344EFF00CB6086;
 			packageReferences = (
 				C59BECCA2A7D009B00B3A554 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				C59BECCF2A7D00A700B3A554 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C59BECD22A7D00BF00B3A554 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				C59BECD52A7D023800B3A554 /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 			);
 			productRefGroup = C572EF3726344EFF00CB6086 /* Products */;
 			projectDirPath = "";
@@ -545,6 +560,7 @@
 				C54FF6D7263626BA00C79A94 /* OpeningCrawlingViewController.swift in Sources */,
 				C5D6BE762A734577003BDF1E /* FilmViewProps.swift in Sources */,
 				C54FF61C2634531600C79A94 /* Starship.swift in Sources */,
+				C5E5DC842A85A1BA0008D461 /* StarWarsRequest.swift in Sources */,
 				3E125EA32698D17700E9A8D1 /* FilmViewModel.swift in Sources */,
 				3E125EA126988AFB00E9A8D1 /* ListViewModel.swift in Sources */,
 				C54FF6172634530000C79A94 /* Film.swift in Sources */,
@@ -555,10 +571,12 @@
 				CEDED6B127A8B0400056497D /* ListViewCell.swift in Sources */,
 				C54FF629263453BC00C79A94 /* Specie.swift in Sources */,
 				C54FF612263452E900C79A94 /* Vehicle.swift in Sources */,
+				C5E5DC882A85B0A30008D461 /* URLExtension.swift in Sources */,
 				CED779832776623A003002BF /* Response.swift in Sources */,
-				C54FF6372634561400C79A94 /* APIService.swift in Sources */,
+				C54FF6372634561400C79A94 /* StarWarsService.swift in Sources */,
 				C54FF64C26345ED200C79A94 /* PlanetViewController.swift in Sources */,
 				C5D6BE7B2A7C6B2B003BDF1E /* ShortcutService.swift in Sources */,
+				C5E5DC862A85AA300008D461 /* RequestError.swift in Sources */,
 				C572EF3A26344EFF00CB6086 /* AppDelegate.swift in Sources */,
 				CE46A1B727C7BD5A001FB7B5 /* UINavigationBar.swift in Sources */,
 				C54FF6642634D7BF00C79A94 /* SpecieViewController.swift in Sources */,
@@ -573,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E5DC8A2A85B24D0008D461 /* StarWarsServiceTests.swift in Sources */,
 				C572EF5126344F0200CB6086 /* StarWarsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -901,25 +920,9 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		C59BECCF2A7D00A700B3A554 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		C59BECD22A7D00BF00B3A554 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		C59BECD52A7D023800B3A554 /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
@@ -937,11 +940,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C59BECCA2A7D009B00B3A554 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		C59BECD02A7D00A700B3A554 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C59BECCF2A7D00A700B3A554 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		C59BECD32A7D00BF00B3A554 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

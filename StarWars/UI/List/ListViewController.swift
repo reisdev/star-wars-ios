@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ListViewController<T: Model>: UIViewController {
+class ListViewController: UIViewController {
     
     private unowned var customView: ListView {
         return self.view as! ListView
@@ -23,13 +23,18 @@ class ListViewController<T: Model>: UIViewController {
     private let disposeBag = DisposeBag()
     
     // MARK: PROPERTIES
-    var viewModel: ListViewModel = ListViewModel([],"");
+    private let viewModel: ListViewModel
     private var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: View Lifecycle
-    convenience init(viewModel: ListViewModel) {
-        self.init()
+    init(viewModel: ListViewModel) {
         self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -63,14 +68,15 @@ class ListViewController<T: Model>: UIViewController {
     }
     
     private func setupBinding(){
-        viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
-            let cell = ListViewCell(style: .default, reuseIdentifier: "cell")
-            APIService.shared.get(url)
-                .subscribe(onNext: { (data: T) in
-                    cell.textLabel?.text = data.getCellInfo()
-                }).disposed(by: self.disposeBag)
-            return cell
-        }.disposed(by:disposeBag)
+//        viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
+//            let cell = ListViewCell(style: .default, reuseIdentifier: "cell")
+//
+//            StarWarsService.shared.get(url)
+//                .subscribe(onNext: { (data: T) in
+//                    cell.textLabel?.text = data.getCellInfo()
+//                }).disposed(by: self.disposeBag)
+//            return cell
+//        }.disposed(by:disposeBag)
         
         customView.searchTextField.rx.controlEvent([.editingChanged])
             .asObservable().subscribe(onDisposed:  { [weak self] in
@@ -78,15 +84,12 @@ class ListViewController<T: Model>: UIViewController {
                 guard let text = self.customView.searchTextField.text else { return }
                 self.viewModel.search(text: text)
             }).disposed(by: disposeBag)
-
+        
+        /*
         customView.itemsTableView.rx.itemSelected
             .asControlEvent()
             .subscribe(onNext: { indexPath in
                 let link = self.viewModel.getItemByIndex(index: indexPath.row)
-                
-                guard let url = URL(string: link) else { return }
-                
-                let type = url.pathComponents[url.pathComponents.endIndex - 2]
                 
                 switch(type) {
                 case "films":
@@ -97,6 +100,7 @@ class ListViewController<T: Model>: UIViewController {
                     break
                 }
             }).disposed(by: disposeBag)
+         */
         
         viewModel.title.subscribe(onNext: { (title) in
             self.navigationItem.title = title

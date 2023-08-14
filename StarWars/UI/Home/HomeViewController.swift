@@ -56,6 +56,7 @@ final class HomeViewController: UIViewController {
             return cell
         }.disposed(by: disposeBag)
         
+        /*
         homeView.shortcutsCollectionView.rx.itemSelected
             .asControlEvent()
             .subscribe(onNext: { [weak self] (indexPath) in
@@ -64,7 +65,7 @@ final class HomeViewController: UIViewController {
                 let item = self.viewModel.getItem(by: indexPath)
                 
                 cell?.isUserInteractionEnabled = false
-                APIService.shared.get(item.url).subscribe(onNext: { (response: Response) in
+                StarWarsService.shared.get(item.url).subscribe(onNext: { (response: Response) in
                     let urls = response.results.map { $0.url }
                     let title = item.title
                     
@@ -107,5 +108,6 @@ final class HomeViewController: UIViewController {
                     cell?.isUserInteractionEnabled = true
                 }).disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
+         */
     }
 }
