@@ -7,21 +7,22 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import AVFoundation
 
 final class OpeningCrawlingViewController: UIViewController {
     
-    private unowned var customView: OpeningCrawlingView {
-        return view as! OpeningCrawlingView
-    }
-    
+    private lazy var openingCrawlingView = OpeningCrawlingView()
+
     private let viewModel: OpeningCrawlingViewModel
     private let disposeBag = DisposeBag()
     
-    private var player: AVPlayer!
-    private let soundTrackURL = "https://ia600304.us.archive.org/30/items/StarWarsTheImperialMarchDarthVadersTheme/Star%20Wars-%20The%20Imperial%20March%20%28Darth%20Vader%27s%20Theme%29.mp3"
-    
+    private lazy var player = AVPlayer()
+    private lazy var audioSession = AVAudioSession()
+    private let soundtrackURL = Bundle.main.url(
+        forResource: "the-imperial-march",
+        withExtension: "mp3"
+    )
+
     init(viewModel: OpeningCrawlingViewModel) {
         self.viewModel = viewModel
         
@@ -33,7 +34,7 @@ final class OpeningCrawlingViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = OpeningCrawlingView()
+        view = openingCrawlingView
     }
     
     // MARK: View Lifecycle
@@ -49,32 +50,33 @@ final class OpeningCrawlingViewController: UIViewController {
         
         player.play()
         
-        customView.animateScroll {
-            self.player.pause()
+        openingCrawlingView.animateScroll { [weak self] in
+            self?.player.pause()
         }
     }
     
     private func setupBindings() {
         viewModel.crawlingText
-            .bind(to: customView.crawlingText.rx.text)
+            .bind(to: openingCrawlingView.crawlingText.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.crawlingText
             .map { $0.count == 0 }
-            .bind(to: customView.crawlingText.rx.isHidden)
+            .bind(to: openingCrawlingView.crawlingText.rx.isHidden)
             .disposed(by: disposeBag)
             
-        viewModel.crawlingText.subscribe(onNext: { _ in
-            self.customView.scrollToTop()
-        }).disposed(by: disposeBag)
+        viewModel.crawlingText.subscribe { [weak self] _ in
+            self?.openingCrawlingView.scrollToTop()
+        }.disposed(by: disposeBag)
     }
     
     // MARK: Actions
     private func loadThemeSong() {
+        guard let soundtrackURL else { return }
+
         do {
-            try AVAudioSession.sharedInstance().setCategory(.ambient)
-            try AVAudioSession.sharedInstance().setActive(true)
-            let playerItem = AVPlayerItem(url: URL.init(string: soundTrackURL)!)
+            try audioSession.setCategory(.ambient)
+            let playerItem = AVPlayerItem(url: soundtrackURL)
             player = AVPlayer(playerItem: playerItem)
             player.volume = 1.0
         } catch let error as NSError {

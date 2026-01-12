@@ -8,10 +8,10 @@
 import Foundation
 
 struct Specie: Model {
-    var name: String
-    var url: String
-    
+    let name: String
+    let url: URL
+
     func getCellInfo() -> String {
-        return name
+        name
     }
 }

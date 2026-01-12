@@ -13,16 +13,14 @@ import SnapKit
 class OpeningCrawlingView: UIView {
     
     // MARK: Views
-    lazy var crawlingText: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.backgroundColor = .darkGray
-        label.textColor = .systemYellow
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Hiragino Sans W7", size: CGFloat(30.0))
-        return label
-    }()
+    lazy var crawlingText: UILabel = .make {
+        $0.textAlignment = .center
+        $0.backgroundColor = .darkGray
+        $0.textColor = .systemYellow
+        $0.numberOfLines = 0
+        $0.lineBreakMode = .byWordWrapping
+        $0.font = UIFont(name: "Hiragino Sans W7", size: 30.0)
+    }
     
     private lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
@@ -39,16 +37,19 @@ class OpeningCrawlingView: UIView {
     }
     
     func animateScroll(completion: @escaping () -> ()) {
-        UIView.animate(withDuration: 45.0, delay: 2, options: [.allowUserInteraction],
-        animations: {
+        UIView.animate(
+            withDuration: 45.0,
+            delay: 2,
+            options: [.allowUserInteraction]
+        ) {
             self.scrollView.contentOffset.y = self.contentView.frame.height + 16.0
-        }, completion: { completed in
+        } completion: { completed in
             completion()
-        })
+        }
     }
     
     public func scrollToTop() {
-        self.scrollView.contentOffset.y = 0.0
+        scrollView.contentOffset.y = 0.0
     }
 }
 

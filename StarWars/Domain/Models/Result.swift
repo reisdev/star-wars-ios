@@ -8,5 +8,5 @@
 import Foundation
 
 struct Result: Codable {
-    var url: URL
+    let url: URL
 }

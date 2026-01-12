@@ -1,19 +1,26 @@
 //
 //  FilmViewUITests.swift
-//  StarWarsDeckUITests
+//  StarWarsTests
 //
 //  Created by Matheus dos Reis de Jesus on 10/05/22.
 //
 
 import SnapshotTesting
 import XCTest
-@testable import StarWarsDeck
+import RxSwift
+@testable import StarWars
 
 class FilmViewTests: XCTestCase {
+    let disposeBag = DisposeBag()
     func testFilmView() {
-        let viewModel = FilmViewModel(FilmMock.mockFilm())
-        
+        let expectation = expectation(description: "props updated")
+        let service = StarWarsServiceMock(getFilename: "film_1")
+        let viewModel = FilmViewModel(service: service, id: "1")
+        viewModel.props.first().subscribe { _ in
+            expectation.fulfill()
+        }.disposed(by: disposeBag)
         let viewController = FilmViewController(viewModel: viewModel)
-        assertSnapshot(matching: viewController, as: .image)
+        wait(for: [expectation], timeout: 5.0)
+        assertSnapshot(of: viewController, as: .image)
     }
 }

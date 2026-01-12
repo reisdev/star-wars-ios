@@ -9,7 +9,7 @@ import Foundation
 
 protocol ViewControllerFactoryProtocol {
     func makeHomeViewController() -> HomeViewController
-    func makeListViewController(for urls: [URL], with title: String) -> ListViewController
+    func makeListViewController<T: Model>(for urls: [URL], with title: String) -> ListViewController<T>
 }
 
 final class ViewControllerFactory: ViewControllerFactoryProtocol {
@@ -23,10 +23,10 @@ final class ViewControllerFactory: ViewControllerFactoryProtocol {
         let homeViewModel = HomeViewModel(service: service)
         return HomeViewController(viewModel: homeViewModel)
     }
-    
-    func makeListViewController(for urls: [URL], with title: String) -> ListViewController {
+
+    func makeListViewController<T: Model>(for urls: [URL], with title: String) -> ListViewController<T> {
         let service = StarWarsService()
-        let viewModel = ListViewModel(service: service, items: urls, title: title)
+        let viewModel = ListViewModel<T>(service: service, urls: urls, title: title)
         return ListViewController(viewModel: viewModel)
     }
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 struct Response<T: Codable>: Codable {
-    var count: Int
-    var next: String?
-    var previous: String?
-    var results: [T]
+    let count: Int
+    let next: String?
+    let previous: String?
+    let results: [T]
 }

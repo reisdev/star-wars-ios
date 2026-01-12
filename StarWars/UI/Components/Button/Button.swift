@@ -22,7 +22,6 @@ class Button: UIButton {
     }
     
     func setup(with props: ButtonProps) {
-        
         if let title = props.title {
             setTitle(title, for: .normal)
         }

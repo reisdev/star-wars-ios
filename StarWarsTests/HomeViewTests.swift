@@ -8,19 +8,18 @@
 import Foundation
 import XCTest
 import SnapshotTesting
-@testable import StarWarsDeck
+@testable import StarWars
 
 class HomeViewTests: XCTestCase {
     func testHomeShortcutViewCell() {
         let sut = HomeShortcutViewCell()
-        
-        sut.setup(with: HomeShortcut(title: "Films", url: "", icon: .init(systemName: "play.rectangle.fill")))
-        
-        assertSnapshot(matching: sut, as: .image(size: CGSize(width: UIScreen.main.bounds.width, height: 80)))
+        sut.setup(with: HomeShortcut(title: "Films", url: "", iconName: "play.rectangle.fill"))
+        assertSnapshot(of: sut, as: .image(size: CGSize(width: UIScreen.main.bounds.width, height: 80)))
     }
     
     func testHomeView() {
-        let sut = HomeViewController()
-        assertSnapshot(matching: sut, as: .image)
-    }    
+        let viewModel = HomeViewModel(service: JSONService(fileName: "home_shortcuts"))
+        let sut = HomeViewController(viewModel: viewModel)
+        assertSnapshot(of: sut, as: .image)
+    }
 }

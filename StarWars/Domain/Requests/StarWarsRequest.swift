@@ -15,7 +15,7 @@ enum StarWarsRequest: String {
     case starships
     case planets
     
-    private var baseURL: String { "https://swapi.dev/api" }
+    private var baseURL: String { "https://swapi.info/api" }
     
     var path: String {
         String(format: "%@/%@", baseURL, rawValue)

@@ -9,12 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ListViewController: UIViewController {
-    
-    private unowned var customView: ListView {
-        return self.view as! ListView
-    }
-    
+class ListViewController<T: Model>: UIViewController {
+
+    private lazy var listView = ListView()
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -23,11 +21,11 @@ class ListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     // MARK: PROPERTIES
-    private let viewModel: ListViewModel
+    private let viewModel: ListViewModel<T>
     private var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: View Lifecycle
-    init(viewModel: ListViewModel) {
+    init(viewModel: ListViewModel<T>) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -38,13 +36,15 @@ class ListViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = ListView()
+        self.view = listView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupBinding()
+
+        viewModel.fetch()
     }
     
     // MARK: Setups
@@ -53,55 +53,30 @@ class ListViewController: UIViewController {
     }
     
     private func setupNavigation() {
-        self.title = viewModel.title.value
+        self.title = viewModel.title
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .systemYellow
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(named: "magnifyingglass"), style: .plain, target: self, action: #selector(setupSearchBar))
-    }
-    
-    @objc private func setupSearchBar() {
-        navigationController?.navigationBar.showSearchField()
     }
     
     private func setupBinding(){
-//        viewModel.urls.bind(to: customView.itemsTableView.rx.items) { (tableView,index,url) in
-//            let cell = ListViewCell(style: .default, reuseIdentifier: "cell")
-//
-//            StarWarsService.shared.get(url)
-//                .subscribe(onNext: { (data: T) in
-//                    cell.textLabel?.text = data.getCellInfo()
-//                }).disposed(by: self.disposeBag)
-//            return cell
-//        }.disposed(by:disposeBag)
-        
-        customView.searchTextField.rx.controlEvent([.editingChanged])
-            .asObservable().subscribe(onDisposed:  { [weak self] in
-                guard let self = self else { return }
-                guard let text = self.customView.searchTextField.text else { return }
-                self.viewModel.search(text: text)
-            }).disposed(by: disposeBag)
-        
-        /*
-        customView.itemsTableView.rx.itemSelected
-            .asControlEvent()
-            .subscribe(onNext: { indexPath in
-                let link = self.viewModel.getItemByIndex(index: indexPath.row)
-                
-                switch(type) {
-                case "films":
-                    let viewModel = FilmViewModel(url: link)
-                    let controller = FilmViewController(viewModel: viewModel)
-                    self.navigationController?.pushViewController(controller, animated: true)
-                default:
-                    break
-                }
-            }).disposed(by: disposeBag)
-         */
-        
-        viewModel.title.subscribe(onNext: { (title) in
-            self.navigationItem.title = title
-        }).disposed(by: disposeBag)
-        
+        viewModel.items
+            .bind(
+                to: listView.itemsTableView.rx.items(
+                    cellIdentifier: ListViewCell.identifier,
+                    cellType: ListViewCell.self
+                )
+            ) { (tableView, item, cell) in
+            cell.textLabel?.text = item.getCellInfo()
+        }.disposed(by:disposeBag)
+
+        listView.itemsTableView.rx
+            .modelSelected(Film.self)
+            .subscribe { item in
+                let viewController = FilmViewController(
+                    viewModel: FilmViewModel(film: item)
+                )
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }.disposed(by: disposeBag)
     }
 }
