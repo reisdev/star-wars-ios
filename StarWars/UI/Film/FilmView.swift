@@ -32,14 +32,14 @@ final class FilmView: UIView {
             shortcutsStack
         ]
     )
-    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle,movieYear])
+    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle])
     private lazy var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0,views: [directorLabel, directorName])
     private lazy var producerStack = makeGenericStackView(axis: .horizontal, views: [producerLabel, producerName])
-    private lazy var yearStack = makeGenericStackView(axis: .horizontal, views: [movieYear])
-    private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton,vehiclesButton])
-    private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton,speciesButton])
-    private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine,secondShortcutLine])
-    
+    private lazy var yearStack = makeGenericStackView(axis: .horizontal, views: [yearLabel, movieYear])
+    private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton, vehiclesButton])
+    private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton, speciesButton])
+    private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine, secondShortcutLine])
+
     // MARK: Subviews
     lazy var backButton: Button = {
         let button = Button()
@@ -51,12 +51,13 @@ final class FilmView: UIView {
     lazy var movieCoverImageView: UIImageView = .make {
         $0.contentMode = .scaleAspectFit
     }
-    lazy var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
-    lazy var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
-    lazy var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
-    lazy var directorName = makeGenericLabel(fontSize: 18.0);
-    lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
-    lazy var producerName = makeGenericLabel(fontSize: 18.0);
+    lazy var movieTitle = makeGenericLabel(fontSize: 26, weight: .bold)
+    lazy var yearLabel = makeGenericLabel(text: "Year", fontSize: 20, weight: .bold)
+    lazy var movieYear = makeGenericLabel(fontSize: 18)
+    lazy var directorLabel = makeGenericLabel(text: "Director", fontSize: 20, weight: .bold)
+    lazy var directorName = makeGenericLabel(fontSize: 18)
+    lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20, weight: .bold)
+    lazy var producerName = makeGenericLabel(fontSize: 18)
     lazy var crawlingButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Opening Crawling", image: .play, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -150,6 +151,6 @@ extension FilmView: ViewCode {
         backgroundColor = .darkGray
 
         verticalStack.setCustomSpacing(50.0, after: infoStackView)
-        verticalStack.setCustomSpacing(30.0, after: producerStack)
+        verticalStack.setCustomSpacing(30.0, after: yearStack)
     }
 }

@@ -50,7 +50,12 @@ final class HomeShortcutViewCell: UICollectionViewCell {
         super.init(frame: .zero)
         setup()
     }
-    
+
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

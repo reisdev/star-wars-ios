@@ -69,5 +69,9 @@ extension HomeView: ViewCode {
             make.bottom.equalToSuperview().inset(Metrics.contentSpacing).priority(.low)
         }
     }
+
+    internal func setupStyle() {
+        backgroundColor = .darkGray
+    }
 }
 

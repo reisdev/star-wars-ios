@@ -13,14 +13,8 @@ import RxSwift
 class FilmViewTests: XCTestCase {
     let disposeBag = DisposeBag()
     func testFilmView() {
-        let expectation = expectation(description: "props updated")
-        let service = StarWarsServiceMock(getFilename: "film_1")
-        let viewModel = FilmViewModel(service: service, id: "1")
-        viewModel.props.first().subscribe { _ in
-            expectation.fulfill()
-        }.disposed(by: disposeBag)
+        let viewModel = FilmViewModel(film: .mock())
         let viewController = FilmViewController(viewModel: viewModel)
-        wait(for: [expectation], timeout: 5.0)
-        assertSnapshot(of: viewController, as: .image)
+        assertSnapshot(of: viewController, as: .image(on: .iPhone13))
     }
 }

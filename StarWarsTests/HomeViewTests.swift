@@ -13,13 +13,13 @@ import SnapshotTesting
 class HomeViewTests: XCTestCase {
     func testHomeShortcutViewCell() {
         let sut = HomeShortcutViewCell()
-        sut.setup(with: HomeShortcut(title: "Films", url: URL(string: "")!, iconName: "play.rectangle.fill"))
-        assertSnapshot(of: sut, as: .image(size: CGSize(width: UIScreen.main.bounds.width, height: 80)))
+        sut.setup(with: HomeShortcut(title: "Films", url: URL(string: "https://google.com")!, iconName: "play.rectangle.fill"))
+        assertSnapshot(of: sut, as: .image(size: CGSize(width: 120, height: 120)))
     }
     
     func testHomeView() {
         let viewModel = HomeViewModel(service: JSONService(fileName: "home_shortcuts"))
         let sut = HomeViewController(viewModel: viewModel)
-        assertSnapshot(of: sut, as: .image)
+        assertSnapshot(of: sut, as: .image(on: .iPhone13))
     }
 }
