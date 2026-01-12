@@ -1,4 +1,4 @@
-name: iOS starter workflow
+name: Build and Test
 
 on:
   push:
@@ -13,16 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/cache@v2
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
-      - name: Install Packages
-        run: |
-          pod install
+        uses: actions/checkout@v4
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")

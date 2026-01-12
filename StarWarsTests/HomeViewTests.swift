@@ -13,7 +13,7 @@ import SnapshotTesting
 class HomeViewTests: XCTestCase {
     func testHomeShortcutViewCell() {
         let sut = HomeShortcutViewCell()
-        sut.setup(with: HomeShortcut(title: "Films", url: "", iconName: "play.rectangle.fill"))
+        sut.setup(with: HomeShortcut(title: "Films", url: URL(string: "")!, iconName: "play.rectangle.fill"))
         assertSnapshot(of: sut, as: .image(size: CGSize(width: UIScreen.main.bounds.width, height: 80)))
     }
     

@@ -22,7 +22,7 @@ extension Film {
             vehicles: [],
             characters: [],
             planets: [],
-            url: "",
+            url: URL(string: "")!,
             created: "2019-12-05",
             edited: "2019-12-05"
         )
