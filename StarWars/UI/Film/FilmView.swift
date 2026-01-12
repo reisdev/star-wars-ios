@@ -23,8 +23,8 @@ final class FilmView: UIView {
     private lazy var verticalStack = makeGenericStackView(
         axis: .vertical,
         views: [
-            movieCoverImageView,
             infoStackView,
+            movieCoverImageView,
             directorStack,
             producerStack,
             yearStack,
@@ -48,7 +48,9 @@ final class FilmView: UIView {
         return button
     }()
 
-    lazy var movieCoverImageView = UIImageView()
+    lazy var movieCoverImageView: UIImageView = .make {
+        $0.contentMode = .scaleAspectFit
+    }
     lazy var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
     lazy var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
     lazy var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);

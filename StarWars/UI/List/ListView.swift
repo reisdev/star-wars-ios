@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 import RxSwift
-import RxCocoa
 import SnapKit
 
 class ListView: UIView {
     
     // MARK: Constants
+
     private struct Metrics {
         static let searchFieldHeight: CGFloat = 32
         static let contentMargin: CGFloat = 16
@@ -28,7 +28,7 @@ class ListView: UIView {
         return tableView
     }()
     
-    // - MARK: Init
+    // MARK: Init
     init(){
         super.init(frame: .zero)
         setup()

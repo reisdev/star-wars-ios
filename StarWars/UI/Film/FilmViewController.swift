@@ -35,21 +35,23 @@ class FilmViewController: UIViewController {
     override func loadView() {
         self.view = filmView
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
         setupInteractions()
 
         viewModel.fetch()
-    }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            .font : UIFont.systemFont(ofSize: 20.0, weight: .bold),
-            .foregroundColor: UIColor.systemYellow
-        ]
-        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     private func setupBindings(){
@@ -78,102 +80,92 @@ class FilmViewController: UIViewController {
             guard let self, let props else {
                 return
             }
-            self.filmView.setup(with: props)
+            filmView.setup(with: props)
         }.disposed(by: self.disposeBag)
     }
     
     private func setupInteractions() {
-        filmView.backButton.rx.tap.asDriver().drive { _ in
-            self.navigationController?.popViewController(animated: true)
+        filmView.backButton.rx.tap.asDriver().drive { [weak self] _ in
+            guard let self else { return }
+            navigationController?.popViewController(animated: true)
         }.disposed(by: disposeBag)
-        
 
         filmView.crawlingButton.rx.tap
             .asDriver()
-            .drive(onNext: {
-                guard let film = self.viewModel.props.value else {
+            .drive { [weak self] _ in
+                guard let self,
+                      let film = self.viewModel.props.value else {
                     return
                 }
 
-                let viewModel = OpeningCrawlingViewModel(film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil))
+                let crawlText = film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil)
+
+                let viewModel = OpeningCrawlingViewModel(crawlText)
                 let controller = OpeningCrawlingViewController(viewModel: viewModel)
 
-                self.navigationController?.showDetailViewController(controller,sender: nil)
-            }).disposed(by: disposeBag)
-        /*
-        filmView.speciesButton.rx.tap
-            .asDriver()
-            .drive(onNext: {
-                do {
-                    let controller = ListViewController<Specie>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.props.value().species)
-                    controller.viewModel.title.accept("Species")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
-            }).disposed(by: disposeBag)
-        
-        filmView.planetsButton.rx.tap
-            .asDriver()
-            .drive(onNext: {
-                do {
-                    let controller = ListViewController<Planet>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.props.value().planets)
-                    controller.viewModel.title.accept("Planets")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
-            }).disposed(by: disposeBag)
-        
-        filmView.vehiclesButton.rx.tap
-            .asDriver()
-            .drive(onNext: {
-                do {
-                    let controller = ListViewController<Vehicle>()
-                    
-                    controller.viewModel.urls.accept(try self.viewModel.props.value().vehicles)
-                    controller.viewModel.title.accept("Vehicles")
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } catch(let error) {
-                    debugPrint(error)
-                }
-            }).disposed(by: disposeBag)
-         */
+                navigationController?.showDetailViewController(controller,sender: nil)
+            }.disposed(by: disposeBag)
     }
 }
 
 extension FilmViewController: FilmViewDelegate {
     func didTapCharactersButton() {
-        guard let urls = viewModel.props.value?.characters else {
+        guard let props = viewModel.props.value else {
             return
         }
         
-        let controller: ListViewController<People> = ViewControllerFactory.shared.makeListViewController(
-            for: urls,
-            with: "Characters"
+        let controller = ListViewController<People>(
+            viewModel: .init(
+                urls: props.vehicles,
+                title: "\(props.title) - Characters"
+            )
         )
 
-        self.navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func didTapSpeciesButton() {
-        
+        guard let props = viewModel.props.value else {
+            return
+        }
+
+        let controller = ListViewController<Specie>(
+            viewModel: .init(
+                urls: props.planets,
+                title: "\(props.title) - Species"
+            )
+        )
+
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func didTapVehiclesButton() {
-        
+        guard let props = viewModel.props.value else {
+            return
+        }
+
+        let controller = ListViewController<Vehicle>(
+            viewModel: .init(
+                urls: props.vehicles,
+                title: "\(props.title) - Vehicles"
+            )
+        )
+
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func didTapPlanetsButton() {
-        
+        guard let props = viewModel.props.value else {
+            return
+        }
+
+        let controller = ListViewController<Planet>(
+            viewModel: .init(
+                urls: props.planets,
+                title: "\(props.title) - Planets"
+            )
+        )
+
+        navigationController?.pushViewController(controller, animated: true)
     }
-    
-    
 }

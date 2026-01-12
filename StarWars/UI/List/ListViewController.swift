@@ -17,11 +17,9 @@ class ListViewController<T: Model>: UIViewController {
         return .lightContent
     }
     
-    // MARK: CONSTANTS
-    private let disposeBag = DisposeBag()
-    
-    // MARK: PROPERTIES
+    // MARK: Properties
     private let viewModel: ListViewModel<T>
+    private let disposeBag = DisposeBag()
     private var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: View Lifecycle
@@ -68,15 +66,32 @@ class ListViewController<T: Model>: UIViewController {
                 )
             ) { (tableView, item, cell) in
             cell.textLabel?.text = item.getCellInfo()
-        }.disposed(by:disposeBag)
+        }.disposed(by: disposeBag)
 
         listView.itemsTableView.rx
-            .modelSelected(Film.self)
-            .subscribe { item in
-                let viewController = FilmViewController(
-                    viewModel: FilmViewModel(film: item)
-                )
-                self.navigationController?.pushViewController(viewController, animated: true)
+            .modelSelected(T.self)
+            .asControlEvent()
+            .subscribe { [weak self] index in
+                guard let self, let item = index.element else {
+                    return
+                }
+
+                let viewController = switch item {
+                case let film as Film:
+                    FilmViewController(
+                        viewModel: FilmViewModel(film: film)
+                    )
+                case let people as People:
+                    PeopleViewController()
+                case let planet as Planet:
+                    PlanetViewController()
+                case let specie as Specie:
+                    SpecieViewController()
+                default:
+                    UIViewController()
+                }
+
+                navigationController?.pushViewController(viewController, animated: true)
             }.disposed(by: disposeBag)
     }
 }

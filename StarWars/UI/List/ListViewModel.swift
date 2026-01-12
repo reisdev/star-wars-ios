@@ -27,10 +27,31 @@ final class ListViewModel<T: Model> {
     }
 
     func fetch() {
-        guard urls.isEmpty else {
+        guard !urls.isEmpty else {
+            fetchFromEndpoint()
             return
         }
 
+        Task.detached {
+            try await withThrowingTaskGroup(of: T?.self) { [weak self] group in
+                guard let self, let request = request() else { return }
+                for url in self.urls {
+                    group.addTask { [weak self] in
+                        return try await self?.service.get(request, id: url.getIdFromUrl)
+                    }
+                }
+
+                var results: [T] = []
+                for try await item in group {
+                    guard let item else { continue }
+                    results.append(item)
+                }
+                self.items.accept(results)
+            }
+        }
+    }
+
+    private func fetchFromEndpoint() {
         Task.detached { [weak self] in
             guard let self, let request = request() else { return }
 
