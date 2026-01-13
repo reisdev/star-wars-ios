@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61055DD92F16553D00F7BF4C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 61055DD82F16553D00F7BF4C /* RxCocoa */; };
 		61C7E9EC2F143149004AB492 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 61C7E9EB2F143149004AB492 /* SnapshotTesting */; };
 		C59BECCC2A7D009B00B3A554 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECCB2A7D009B00B3A554 /* RxCocoa */; };
 		C59BECCE2A7D009B00B3A554 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C59BECCD2A7D009B00B3A554 /* RxSwift */; };
@@ -37,6 +38,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		61055DDB2F1655F500F7BF4C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Accessibility/A11yIdentifiers.swift,
+			);
+			target = C572EF5626344F0200CB6086 /* StarWarsUITests */;
+		};
 		61C7E9B62F1430D4004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -54,6 +62,11 @@
 		61C7E9E92F1430F8004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Core/Extensions/XCTestCase+Extensions.swift",
+				"Core/Extensions/XCTWaiter+Extensions.swift",
+				Core/TestScreen.swift,
+				Home/HomeScreen.swift,
+				Home/HomeUITests.swift,
 				StarWarsUITests.swift,
 			);
 			target = C572EF5626344F0200CB6086 /* StarWarsUITests */;
@@ -61,7 +74,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		61C7E9832F1430D4004AB492 /* StarWars */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (61C7E9B62F1430D4004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StarWars; sourceTree = "<group>"; };
+		61C7E9832F1430D4004AB492 /* StarWars */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (61C7E9B62F1430D4004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 61055DDB2F1655F500F7BF4C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StarWars; sourceTree = "<group>"; };
 		61C7E9DA2F1430F3004AB492 /* StarWarsTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (61C7E9E42F1430F3004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StarWarsTests; sourceTree = "<group>"; };
 		61C7E9E72F1430F8004AB492 /* StarWarsUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (61C7E9E92F1430F8004AB492 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StarWarsUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -89,18 +102,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61055DD92F16553D00F7BF4C /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61055DD72F16553D00F7BF4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C572EF2D26344EFF00CB6086 = {
 			isa = PBXGroup;
 			children = (
 				61C7E9832F1430D4004AB492 /* StarWars */,
 				61C7E9DA2F1430F3004AB492 /* StarWarsTests */,
 				61C7E9E72F1430F8004AB492 /* StarWarsUITests */,
+				61055DD72F16553D00F7BF4C /* Frameworks */,
 				C572EF3726344EFF00CB6086 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -501,9 +523,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reisdev.com.br.StarWarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StarWarsDeck;
+				TEST_TARGET_NAME = StarWars;
 			};
 			name = Debug;
 		};
@@ -520,9 +543,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reisdev.com.br.StarWarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StarWarsDeck;
+				TEST_TARGET_NAME = StarWars;
 			};
 			name = Release;
 		};
@@ -595,6 +619,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		61055DD82F16553D00F7BF4C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C59BECCA2A7D009B00B3A554 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		61C7E9EB2F143149004AB492 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61C7E9EA2F143149004AB492 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;

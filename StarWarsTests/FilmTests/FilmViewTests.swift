@@ -11,10 +11,9 @@ import RxSwift
 @testable import StarWars
 
 class FilmViewTests: XCTestCase {
-    let disposeBag = DisposeBag()
     func testFilmView() {
         let viewModel = FilmViewModel(film: .mock())
-        let viewController = FilmViewController(viewModel: viewModel)
-        assertSnapshot(of: viewController, as: .image(on: .iPhone13))
+        let sut = FilmViewController(viewModel: viewModel)
+        assertSnapshot(of: sut, as: .image(on: .iPhone13))
     }
 }

@@ -24,6 +24,7 @@ final class HomeView: UIView {
     private lazy var logoImageView: UIImageView = .make {
         $0.image = UIImage(named: "star-wars-logo")
         $0.contentMode = .scaleAspectFit
+        $0.accessibilityIdentifier = A11yIdentifiers.Home.logo
     }
     
     lazy var shortcutsCollectionView: UICollectionView = {
@@ -37,6 +38,7 @@ final class HomeView: UIView {
             forCellWithReuseIdentifier: HomeShortcutViewCell.identifier
         )
         collectionView.backgroundColor = .clear
+        collectionView.accessibilityIdentifier = A11yIdentifiers.Home.collectionView
         return collectionView
     }()
     

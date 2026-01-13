@@ -18,7 +18,9 @@ final class HomeViewController: UIViewController {
     private let viewModel: HomeViewModelProtocol
     private let disposeBag = DisposeBag()
 
-    private lazy var homeView = HomeView()
+    private lazy var homeView: HomeView = .make {
+        $0.accessibilityIdentifier = A11yIdentifiers.Home.view
+    }
 
     // MARK: Init
 
