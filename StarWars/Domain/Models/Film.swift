@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Film: Model {    
-    // - MARK: Attributes
+struct Film: Model {
     let title: String
     let episodeId: Int
     let openingCrawl: String
@@ -20,9 +19,9 @@ struct Film: Model {
     let vehicles: [URL]
     let characters: [URL]
     let planets: [URL]
-    let url: String;
-    let created: String;
-    let edited: String;
+    let url: URL
+    let created: String
+    let edited: String
     var releaseYear: String {
         get {
             return releaseDate.count > 0 ? String(releaseDate.split(separator: "-")[0])
@@ -31,6 +30,6 @@ struct Film: Model {
     }
     
     func getCellInfo() -> String {
-        return title
+        title
     }
 }

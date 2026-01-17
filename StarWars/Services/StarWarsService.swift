@@ -27,7 +27,7 @@ final class StarWarsService: StarWarsServiceProtocol {
         self.urlSession = urlSession
     }
     
-    func get<T: Decodable>(_ request: StarWarsRequest, id: String?) async throws -> T {
+    func get<T: Decodable>(_ request: StarWarsRequest, id: String? = nil) async throws -> T {
         var urlRequest: URLRequest?
         
         if let id {
@@ -41,12 +41,11 @@ final class StarWarsService: StarWarsServiceProtocol {
         }
         
         let (data, _) = try await urlSession.data(for: urlRequest)
-        
+
         return try decoder.decode(T.self, from: data)
     }
     
     func search<T: Decodable>(_ request: StarWarsRequest, search: String) async throws -> T {
-        
         guard let url = request.search(search) else {
             throw RequestError.badURL
         }
@@ -58,7 +57,7 @@ final class StarWarsService: StarWarsServiceProtocol {
 }
 
 extension StarWarsServiceProtocol {
-    func  get<T: Decodable>(_ request: StarWarsRequest) async throws -> T {
-        return try await get(request, id: nil)
+    func get<T: Decodable>(_ request: StarWarsRequest) async throws -> T {
+        try await get(request, id: nil)
     }
 }

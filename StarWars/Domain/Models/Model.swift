@@ -8,5 +8,6 @@
 import Foundation
 
 protocol Model: Codable {
+    var url: URL { get }
     func getCellInfo() -> String
 }

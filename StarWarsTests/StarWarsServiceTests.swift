@@ -10,31 +10,19 @@ import XCTest
 
 final class StarWarsServiceTests: XCTestCase {
 
-    lazy var service: StarWarsServiceProtocol = {
+    lazy var sut: StarWarsServiceProtocol = {
         StarWarsService(urlSession: .init(configuration: .ephemeral))
     }()
     
     func test_getFilmById_shouldSucceed() async throws {
-        let film: Film = try await service.get(.films,id: "1")
+        let film: Film = try await sut.get(.films,id: "1")
         
-        let expectation = expectation(description: "service.get should return the movie")
-        
-        if film.title == "A New Hope" {
-            expectation.fulfill()
-        }
-        
-        await fulfillment(of: [expectation], timeout: 10.0)
+        XCTAssertEqual(film.title, "A New Hope")
     }
     
     func test_getAllFilms_shouldSucceed() async throws {
-        let response: Response<Film> = try await service.get(.films)
-        
-        let expectation = expectation(description: "service.get should return the movie")
-        
-        if !response.results.isEmpty {
-            expectation.fulfill()
-        }
-        
-        await fulfillment(of: [expectation], timeout: 10.0)
+        let response: [Film] = try await sut.get(.films)
+
+        XCTAssertFalse(response.isEmpty)
     }
 }

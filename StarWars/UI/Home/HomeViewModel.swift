@@ -10,9 +10,9 @@ import UIKit
 import RxCocoa
 
 public struct HomeShortcut: Decodable {
-    var title: String
-    var url: String
-    var iconName: String
+    let title: String
+    let url: URL
+    let iconName: String
 }
 
 extension HomeShortcut {
@@ -42,7 +42,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         do {
             let response: HomeShortcutResponse = try service.fetch()
             shortcuts.accept(response.shortcuts)
-        } catch(let error) {
+        } catch {
             print(error)
         }
     }

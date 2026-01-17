@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 import UIKit
 
 protocol FilmViewDelegate: AnyObject {
+    func didTapOpeningCrawlButton()
     func didTapCharactersButton()
     func didTapSpeciesButton()
     func didTapVehiclesButton()
@@ -20,15 +19,28 @@ protocol FilmViewDelegate: AnyObject {
 final class FilmView: UIView {
     
     // MARK: Layout views
+    private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
-    private lazy var verticalStack = makeGenericStackView(axis: .vertical)
-    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle,movieYear])
+    private lazy var verticalStack = makeGenericStackView(
+        axis: .vertical,
+        views: [
+            infoStackView,
+            movieCoverImageView,
+            directorStack,
+            producerStack,
+            yearStack,
+            crawlingButton,
+            shortcutsStack
+        ]
+    )
+    private lazy var infoStackView = makeGenericStackView(axis: .horizontal, views: [backButton, movieTitle])
     private lazy var directorStack = makeGenericStackView(axis: .horizontal, spacing: 20.0,views: [directorLabel, directorName])
     private lazy var producerStack = makeGenericStackView(axis: .horizontal, views: [producerLabel, producerName])
-    private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton,vehiclesButton])
-    private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton,speciesButton])
-    private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine,secondShortcutLine])
-    
+    private lazy var yearStack = makeGenericStackView(axis: .horizontal, views: [yearLabel, movieYear])
+    private lazy var firstShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [charactersButton, vehiclesButton])
+    private lazy var secondShortcutLine = makeGenericStackView(axis: .horizontal, distribution: .fillEqually, views: [planetsButton, speciesButton])
+    private lazy var shortcutsStack = makeGenericStackView(axis: .vertical, views: [firstShortcutLine, secondShortcutLine])
+
     // MARK: Subviews
     lazy var backButton: Button = {
         let button = Button()
@@ -36,53 +48,56 @@ final class FilmView: UIView {
         button.setup(with: .init(style: .icon(.chevronLeft)))
         return button
     }()
-    
-    lazy var movieTitle = makeGenericLabel(fontSize: 26.0,weight: .bold)
-    lazy var movieYear = makeGenericLabel(font: UIFont(name: "Hiragino Sans W6", size: 18.0));
-    lazy var directorLabel = makeGenericLabel(text: "Director",fontSize: 20.0,weight: .bold);
-    lazy var directorName = makeGenericLabel(fontSize: 18.0);
-    lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20.0,weight: .bold);
-    lazy var producerName = makeGenericLabel(fontSize: 18.0);
+
+    lazy var movieCoverImageView: UIImageView = .make {
+        $0.contentMode = .scaleAspectFit
+    }
+    lazy var movieTitle = makeGenericLabel(fontSize: 26, weight: .bold)
+    lazy var yearLabel = makeGenericLabel(text: "Year", fontSize: 20, weight: .bold)
+    lazy var movieYear = makeGenericLabel(fontSize: 18)
+    lazy var directorLabel = makeGenericLabel(text: "Director", fontSize: 20, weight: .bold)
+    lazy var directorName = makeGenericLabel(fontSize: 18)
+    lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20, weight: .bold)
+    lazy var producerName = makeGenericLabel(fontSize: 18)
     lazy var crawlingButton: Button = {
-        let button = Button(props: .init(style: .primary, title: "Opening Crawling", image: .play, rounded: true))
+        let button = Button(props: .init(style: .primary, title: "Opening Crawl", image: .play, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction { [weak self] _ in
+            self?.delegate?.didTapOpeningCrawlButton()
+        }
         return button
     }()
     
     lazy var charactersButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Characters", image: .person, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapCharactersButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     lazy var vehiclesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Vehicles", image: .airplane, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapVehiclesButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     
     lazy var planetsButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Planets", image: .globe, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapPlanetsButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     lazy var speciesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Species", image: .dna, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapSpeciesButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
@@ -103,49 +118,39 @@ final class FilmView: UIView {
         movieYear.text = props.year
         directorName.text = props.director
         producerName.text = props.producer
+
+        movieCoverImageView.image = .init(named: "episode\(props.episodeId)")
     }
 }
 
 // MARK: ViewCode
 extension FilmView: ViewCode {
     internal func buildViewHierarchy() {
-        addSubview(contentView)
-        
-        [infoStackView,directorStack,producerStack,
-         crawlingButton,shortcutsStack].forEach {
-            verticalStack.addArrangedSubview($0)
-         }
-        
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
         contentView.addSubview(verticalStack)
     }
     
     internal func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.bottom.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalToSuperview()
         }
         
         verticalStack.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(24.0)
+            make.top.bottom.equalToSuperview().inset(24.0)
             make.left.right.equalToSuperview().inset(24.0)
-        }
-        
-        directorStack.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-        }
-        
-        producerStack.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-        }
-        
-        shortcutsStack.snp.makeConstraints { make in
-            make.width.equalToSuperview()
         }
     }
     
     internal func setupStyle() {
         backgroundColor = .darkGray
-        
+
         verticalStack.setCustomSpacing(50.0, after: infoStackView)
-        verticalStack.setCustomSpacing(30.0, after: producerStack)
+        verticalStack.setCustomSpacing(30.0, after: yearStack)
     }
 }

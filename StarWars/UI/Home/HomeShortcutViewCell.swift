@@ -12,6 +12,7 @@ import SnapKit
 final class HomeShortcutViewCell: UICollectionViewCell {
     
     // MARK: Constants
+
     private struct Metrics {
         static let spacing: CGFloat = 16
         static let radius: CGFloat = 8
@@ -21,40 +22,40 @@ final class HomeShortcutViewCell: UICollectionViewCell {
     
     // MARK: Views
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = Metrics.spacing
-        stackView.distribution = .fillProportionally
-        return stackView
-    }()
+    private lazy var stackView = makeGenericStackView(
+        axis: .vertical,
+        distribution: .fillProportionally,
+        spacing: Metrics.spacing,
+        views: [iconImageView, titleLabel]
+    )
+
+    private lazy var iconImageView: UIImageView = .make {
+        $0.tintColor = .black
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .black
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private lazy var titleLabel: UILabel = .make {
+        $0.textAlignment = .center
+        $0.textColor = .black
+        $0.lineBreakMode = .byWordWrapping
+    }
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .black
-        return label
-    }()
-    
-    private lazy var loadingView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
-        view.hidesWhenStopped = true
-        return view
-    }()
+    private lazy var loadingView: UIActivityIndicatorView = .make {
+        $0.hidesWhenStopped = true
+    }
     
     // MARK: Init
+
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setup()
     }
-    
+
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -66,12 +67,8 @@ final class HomeShortcutViewCell: UICollectionViewCell {
 }
 
 extension HomeShortcutViewCell: ViewCode {
-
     internal func buildViewHierarchy() {
         addSubview(stackView)
-        
-        stackView.addArrangedSubview(iconImageView)
-        stackView.addArrangedSubview(titleLabel)
     }
     
     internal func setupConstraints() {
@@ -80,7 +77,7 @@ extension HomeShortcutViewCell: ViewCode {
         }
         
         iconImageView.snp.makeConstraints { make in
-            make.size.equalTo(Metrics.iconSize)
+            make.height.equalTo(Metrics.iconSize)
         }
     }
     

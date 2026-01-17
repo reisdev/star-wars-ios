@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class ListViewCell: UITableViewCell {
-    
+final class ListViewCell: UITableViewCell {
+
     private let chevronImageView: UIImageView = {
         let imageView = UIImageView(image: .chevronRight)
         imageView.backgroundColor = .darkGray

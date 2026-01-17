@@ -22,7 +22,6 @@ class Button: UIButton {
     }
     
     func setup(with props: ButtonProps) {
-        
         if let title = props.title {
             setTitle(title, for: .normal)
         }
@@ -48,5 +47,9 @@ class Button: UIButton {
             layer.cornerRadius = cornerRadius
             clipsToBounds = true
         }
+    }
+
+    func addAction(action: @escaping UIActionHandler) {
+        self.addAction(.init(title: "tap", handler: action), for: .touchUpInside)
     }
 }

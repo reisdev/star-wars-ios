@@ -26,7 +26,7 @@
             "iconName": "airplane"
         },
         {
-            "title": "Vehicle",
+            "title": "Vehicles",
             "url": "https://swapi.dev/api/vehicles/",
             "iconName": "car.fill"
         }

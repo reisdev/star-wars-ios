@@ -8,6 +8,7 @@
 import Foundation
 
 struct FilmViewProps {
+    let episodeId: Int
     let title: String
     let year: String
     let director: String
@@ -18,10 +19,13 @@ struct FilmViewProps {
     let vehicles: [URL]
     let characters: [URL]
     let planets: [URL]
+
+    let openingCrawl: String
 }
 
 extension FilmViewProps {
     init(from film: Film) {
+        self.episodeId = film.episodeId
         self.title = film.title
         self.year = film.releaseYear
         self.director = film.director
@@ -31,5 +35,6 @@ extension FilmViewProps {
         self.vehicles = film.vehicles
         self.planets = film.planets
         self.starships = film.starships
+        self.openingCrawl = film.openingCrawl
     }
 }

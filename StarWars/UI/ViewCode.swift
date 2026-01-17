@@ -20,6 +20,7 @@ extension ViewCode {
         setupConstraints()
         setupStyle()
     }
+
     func setupStyle() {
         
     }
