@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class FilmViewController: UIViewController {
     
@@ -89,26 +88,23 @@ class FilmViewController: UIViewController {
             guard let self else { return }
             navigationController?.popViewController(animated: true)
         }.disposed(by: disposeBag)
-
-        filmView.crawlingButton.rx.tap
-            .asDriver()
-            .drive { [weak self] _ in
-                guard let self,
-                      let film = self.viewModel.props.value else {
-                    return
-                }
-
-                let crawlText = film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n", options: .regularExpression, range: nil)
-
-                let viewModel = OpeningCrawlingViewModel(crawlText)
-                let controller = OpeningCrawlingViewController(viewModel: viewModel)
-
-                navigationController?.showDetailViewController(controller,sender: nil)
-            }.disposed(by: disposeBag)
     }
 }
 
 extension FilmViewController: FilmViewDelegate {
+    func didTapOpeningCrawlButton() {
+        guard let film = self.viewModel.props.value else {
+            return
+        }
+
+        let crawlText = film.openingCrawl.replacingOccurrences(of: "\r\n", with: "\n")
+
+        let viewModel = OpeningCrawlViewModel(crawlText)
+        let controller = OpeningCrawlViewController(viewModel: viewModel)
+
+        navigationController?.showDetailViewController(controller,sender: nil)
+    }
+
     func didTapCharactersButton() {
         guard let props = viewModel.props.value else {
             return

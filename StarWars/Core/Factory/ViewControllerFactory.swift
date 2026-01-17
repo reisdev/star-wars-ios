@@ -7,24 +7,14 @@
 
 import Foundation
 
-protocol ViewControllerFactoryProtocol {
-    func makeHomeViewController() -> HomeViewController
-    func makeListViewController<T: Model>(for urls: [URL], with title: String) -> ListViewController<T>
-}
-
-final class ViewControllerFactory: ViewControllerFactoryProtocol {
-    
-    static var shared = {
-       return ViewControllerFactory()
-    }()
-    
-    func makeHomeViewController() -> HomeViewController {
+final class ViewControllerFactory {
+    static func makeHomeViewController() -> HomeViewController {
         let service = JSONService(fileName: "home_shortcuts")
         let homeViewModel = HomeViewModel(service: service)
         return HomeViewController(viewModel: homeViewModel)
     }
 
-    func makeListViewController<T: Model>(for urls: [URL], with title: String) -> ListViewController<T> {
+    static func makeListViewController<T: Model>(for urls: [URL], with title: String) -> ListViewController<T> {
         let service = StarWarsService()
         let viewModel = ListViewModel<T>(service: service, urls: urls, title: title)
         return ListViewController(viewModel: viewModel)

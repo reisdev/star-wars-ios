@@ -48,4 +48,8 @@ class Button: UIButton {
             clipsToBounds = true
         }
     }
+
+    func addAction(action: @escaping UIActionHandler) {
+        self.addAction(.init(title: "tap", handler: action), for: .touchUpInside)
+    }
 }

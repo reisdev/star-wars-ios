@@ -78,15 +78,15 @@ class ListViewController<T: Model>: UIViewController {
 
                 let viewController = switch item {
                 case let film as Film:
-                    FilmViewController(
-                        viewModel: FilmViewModel(film: film)
-                    )
-                case let people as People:
+                    FilmViewController(viewModel: FilmViewModel(film: film))
+                case is People:
                     PeopleViewController()
-                case let planet as Planet:
+                case is Planet:
                     PlanetViewController()
-                case let specie as Specie:
+                case is Specie:
                     SpecieViewController()
+                case is Vehicle:
+                    VehicleViewController()
                 default:
                     UIViewController()
                 }

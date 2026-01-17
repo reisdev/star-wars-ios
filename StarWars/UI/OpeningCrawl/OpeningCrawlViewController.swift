@@ -1,5 +1,5 @@
 //
-//  OpeningCrawlingViewController.swift
+//  OpeningCrawlViewController.swift
 //  StarWars
 //
 //  Created by ReisDev on 25/04/21.
@@ -9,11 +9,11 @@ import UIKit
 import RxSwift
 import AVFoundation
 
-final class OpeningCrawlingViewController: UIViewController {
+final class OpeningCrawlViewController: UIViewController {
     
-    private lazy var openingCrawlingView = OpeningCrawlingView()
+    private lazy var openingCrawlView = OpeningCrawlView()
 
-    private let viewModel: OpeningCrawlingViewModel
+    private let viewModel: OpeningCrawlViewModel
     private let disposeBag = DisposeBag()
     
     private lazy var player = AVPlayer()
@@ -23,7 +23,7 @@ final class OpeningCrawlingViewController: UIViewController {
         withExtension: "mp3"
     )
 
-    init(viewModel: OpeningCrawlingViewModel) {
+    init(viewModel: OpeningCrawlViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -34,7 +34,7 @@ final class OpeningCrawlingViewController: UIViewController {
     }
     
     override func loadView() {
-        view = openingCrawlingView
+        self.view = openingCrawlView
     }
     
     // MARK: View Lifecycle
@@ -42,31 +42,28 @@ final class OpeningCrawlingViewController: UIViewController {
         super.viewDidLoad()
         
         setupBindings()
-        loadThemeSong()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        player.play()
-        
-        openingCrawlingView.animateScroll { [weak self] in
-            self?.player.pause()
-        }
     }
     
     private func setupBindings() {
         viewModel.crawlingText
-            .bind(to: openingCrawlingView.crawlingText.rx.text)
+            .bind(to: openingCrawlView.crawlingText.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.crawlingText
             .map { $0.count == 0 }
-            .bind(to: openingCrawlingView.crawlingText.rx.isHidden)
+            .bind(to: openingCrawlView.crawlingText.rx.isHidden)
             .disposed(by: disposeBag)
             
         viewModel.crawlingText.subscribe { [weak self] _ in
-            self?.openingCrawlingView.scrollToTop()
+            self?.loadThemeSong()
+            self?.openingCrawlView.scrollToTop()
+
+            self?.player.play()
+
+            self?.openingCrawlView.animateScroll { [weak self] in
+                self?.player.pause()
+                self?.player.seek(to: .zero)
+            }
         }.disposed(by: disposeBag)
     }
     

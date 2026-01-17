@@ -1,5 +1,5 @@
 //
-//  OpeningCrawlingView.swift
+//  OpeningCrawlView.swift
 //  StarWars
 //
 //  Created by ReisDev on 11/07/21.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class OpeningCrawlingView: UIView {
+class OpeningCrawlView: UIView {
     
     // MARK: Views
     lazy var crawlingText: UILabel = .make {
@@ -19,6 +19,7 @@ class OpeningCrawlingView: UIView {
         $0.textColor = .systemYellow
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
+        $0.alpha = 0
         $0.font = UIFont(name: "Hiragino Sans W7", size: 30.0)
     }
     
@@ -49,12 +50,15 @@ class OpeningCrawlingView: UIView {
     }
     
     public func scrollToTop() {
-        scrollView.contentOffset.y = 0.0
+        UIView.animate(withDuration: 0.10) {
+            self.scrollView.contentOffset.y = .zero
+            self.crawlingText.alpha = 1
+        }
     }
 }
 
 // MARK: ViewCode
-extension OpeningCrawlingView: ViewCode {
+extension OpeningCrawlView: ViewCode {
     internal func buildViewHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)

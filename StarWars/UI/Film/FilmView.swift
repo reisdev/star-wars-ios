@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol FilmViewDelegate: AnyObject {
+    func didTapOpeningCrawlButton()
     func didTapCharactersButton()
     func didTapSpeciesButton()
     func didTapVehiclesButton()
@@ -59,45 +60,44 @@ final class FilmView: UIView {
     lazy var producerLabel = makeGenericLabel(text: "Producer", fontSize: 20, weight: .bold)
     lazy var producerName = makeGenericLabel(fontSize: 18)
     lazy var crawlingButton: Button = {
-        let button = Button(props: .init(style: .primary, title: "Opening Crawling", image: .play, rounded: true))
+        let button = Button(props: .init(style: .primary, title: "Opening Crawl", image: .play, rounded: true))
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction { [weak self] _ in
+            self?.delegate?.didTapOpeningCrawlButton()
+        }
         return button
     }()
     
     lazy var charactersButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Characters", image: .person, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapCharactersButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     lazy var vehiclesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Vehicles", image: .airplane, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapVehiclesButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     
     lazy var planetsButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Planets", image: .globe, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapPlanetsButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
     lazy var speciesButton: Button = {
         let button = Button(props: .init(style: .primary, title: "Species", image: .dna, rounded: true))
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction(title: "Tap") { [weak self] _ in
+        button.addAction { [weak self] _ in
             self?.delegate?.didTapSpeciesButton()
-        }, for: .touchUpInside)
+        }
         return button
     }()
     
